@@ -1,49 +1,58 @@
+import { useFormik } from "formik";
+import { useNavigate,useSearchParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { MDBRadio } from 'mdb-react-ui-kit';
 import axios from 'axios';
-import { useFormik } from "formik";
 import { TraineeSignUp } from './schemas/TraineeValidation';
-import { useNavigate } from 'react-router-dom';
-const initialValues={
-  name:"",
-  username:"",
-  password:"",
-  confirm_password:"",
-  age:"",
-  gender:"",
-  phoneno:"",
-  emailid:"",
-  adharno:"",
-  joiningdate:"",
-  address:"",
-};
 
-const Trainee=()=>{
- 
-   let navigate=useNavigate();
-       const {values,errors,touched,handleBlur,handleSubmit,handleChange }=useFormik({
-          initialValues,
+const UpdateTrainee=()=>{
+    console.log("inupdate trainee");
+     alert(item.id);
+    let navigate=useNavigate();
+
+    let[searchparams]=useSearchParams();
+    let item=searchparams.get("val");
+    alert(item.id);
+    const initialValues={
+        name:item.name,
+        username:item.username,
+        password:item.password,
+        confirm_password:item.password,
+        age:item.age,
+        gender:item.gender,
+        phoneno:item.phoneno,
+        emailid:item.emailid,
+        adharno:item.adharno,
+        joiningdate:item.joiningdate,
+        address:item.address,
+      };
+        const{values,errors,touched,handleChange,handleBlur,handleSubmit}=useFormik({
+            initialValues,
           validationSchema:TraineeSignUp,
-          onSubmit:(values)=>{
+           onSubmit:(values)=>{
             console.log(values.age);
             console.log("in submit"+values);
             alert(values.gender);
               
-            axios.post('http://localhost:8080/addTrainee',values)
+            axios.post('http://localhost:8080/updateTrainee',values)
             .then(response => {
                           if(response.data)
-                          navigate(`/owner?status=${response.data}`);
+                          navigate(`/traineedata?status=${response.data}`);
                           else
-                          navigate('/trainee');
+                          navigate('/UpdateTrainee');
 
             })
             .catch(error => {  alert(error);  });
-          },
-       });
-    
-   
-    return<>
+
+           },
+
+
+        });
+
+
+
+    return(<>
     <div className='backgroundColor'>
     <form action="" onSubmit={handleSubmit}className='moduleContents formsBackground traineeForm backgroundImages'>
         <h1 className='moduleHeadings traineeHeading'>TraineeForm</h1>
@@ -137,9 +146,11 @@ const Trainee=()=>{
       </Button>
     </form>
     </div>
-    </>;
-
-
+    </>
     
-}
-export default Trainee;
+    )
+
+
+};
+
+export default UpdateTrainee;

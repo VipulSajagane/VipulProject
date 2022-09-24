@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useSearchParams,Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const Login=()=>{
-   
+    let[searchparams]=useSearchParams();
+       let status=searchparams.get("status");
     const[inputs,setInputs]=useState({}); 
     const[forgotpassword,setforgotpassword]=useState(false);
         const changeHandler=(event)=>{
@@ -44,6 +45,7 @@ return(
         <Button className="ownerFormButton" variant="primary" type="submit">
         Submit
       </Button>
+   
     </form>
     :
     <form class="form-controller container moduleContents formsBackground moduleContents loginPage backgroundImages" onSubmit={submitHandler}>
@@ -58,47 +60,13 @@ return(
   </div>
   <button type="submit" class="form-control mt-4 btn btn-primary">Login</button>
   <div button className="loginPage loginHeading"  name="fogot" id="fogot " onClick={passwordHandler}>forgot password ?</div>
-  
+  { status ? <p>You are Succesfully register.</p>:null}
   </form>
+  
     }
     
+    <Link to="/ownerpage">Owner Page Layout</Link>
 
-
-   {/* <div className="moduleContents formsBackground moduleContents loginPage backgroundImages">
-    {forgotpassword ?
-   
-    
-    <form class="form-controller container " onSubmit={submitHandler}>
-     <h2 className="  text-center text-primary " >Forgot Password</h2>
-     <div>
-     <lable for="name"  class="form-label" >Name : </lable>
-     <input type="text" name="name" onChange={changeHandler} value={inputs.name} class="form-control " id="name"/>
-     </div>
-     <div>
-     <lable for="dob"  class="form-label"  onChange={changeHandler}>Date of Birth : </lable>
-     <input type="date" name="dob" onChange={changeHandler} value={inputs.dob} class="form-control" id="dob"/>
-     </div>
-     <button type="submit" class="form-control mt-4 btn btn-primary">submit</button>
-          
-     </form>
-
-     : 
-     <form class="form-controller container " onSubmit={submitHandler}>
-     <h2 class="text-center loginHeading" >Login Page</h2>
-   <div>
-   <lable for="username"  class="form-label" >Username : </lable>
-   <input type="text" name="username" onChange={changeHandler} value={inputs.username} class="form-control " id="userName"/>
-   </div>
-   <div>
-   <lable for="password"  class="form-label"  onChange={changeHandler}>Password : </lable>
-   <input type="password" name="password" onChange={changeHandler} value={inputs.password} class="form-control" id="password"/>
-   </div>
-   <button type="submit" class="form-control mt-4 btn btn-primary">Login</button>
-   <div button className="loginPage loginHeading"  name="fogot" id="fogot " onClick={passwordHandler}>forgot password ?</div>
-   
-   </form>
-     }
-     */}
     </div>
     
     </>

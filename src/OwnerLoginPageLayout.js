@@ -19,21 +19,20 @@ import hl3 from './Images/hl3.jpg'
 import HomeSubComponent from './HomeSubComponent';
 import { Link, Outlet, Route, Router } from 'react-router-dom';
 import navbar from './Navbar';
-import {Clock} from "grommet"
+import {Clock} from "grommet";
+import TraineeData from './TraineeData';
 
 
-function HomePage() {
+function OwnerLoginPageLayout() {
 
 
 
-  const isStatus=false;
   return (
   <>
-
-    {/* <Navbar className={navbar ? 'navbar active':'navbar'} bg="light" expand="lg"> */}
-    <Navbar className= 'navbar active' bg="light" variant='dark' expand="lg">
+   {/* <Navbar className={navbar ? 'navbar active':'navbar'} bg="light" expand="lg"> */}
+   <Navbar className= 'navbar active' bg="light" expand="lg">
     <Container fluid>
-      <Navbar.Brand href="" className='heading'>SmartAndFit.com</Navbar.Brand>
+      <Navbar.Brand href="" className='heading'>Owner Page</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -41,17 +40,12 @@ function HomePage() {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link className='margin' href="#action1"><Link to='/home' className='routing'>Home</Link></Nav.Link>
-         
-          <NavDropdown title="Login/Register" id="navbarScrollingDropdown">
-            <NavDropdown.Item>
-            <Link to="/owner" className='routing'>Owner</Link> </NavDropdown.Item>
-            <NavDropdown.Item > <Link to="/trainer" className='routing'>Trainer</Link></NavDropdown.Item>
-            
-            <NavDropdown.Item> <Link to='/trainee' className='routing'>Trainee</Link></NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link><Link to='/caloriecounter' className='routing'> Calorie Counter</Link></Nav.Link>
-          <Nav.Link><Link to='/bmicalculator' className='routing'>BMI Calculator</Link></Nav.Link>
+          <Nav.Link className='margin' href="#action1"><Link to='/ownerprofile' className='routing'>Home</Link></Nav.Link>
+          <Nav.Link><Link to='/traineedata' className='routing'> Trainee Info</Link></Nav.Link>
+          <Nav.Link><Link to='/trainerdata' className='routing'> Trainer Info</Link></Nav.Link>
+          <Nav.Link><Link to='/ownerbmicalculator' className='routing'> Calorie Counter</Link></Nav.Link>
+          <Nav.Link><Link to='/ownercaloriecounter' className='routing'>BMI Calculator</Link></Nav.Link>
+          <Nav.Link><Link to='' className='routing'>Logout</Link></Nav.Link>
         </Nav>
         <Form className="d-flex">
           <Form.Control
@@ -65,13 +59,16 @@ function HomePage() {
       </Navbar.Collapse>
     </Container>
   </Navbar>
- 
-  <Outlet>
-<HomeSubComponent/> 
-</Outlet>
- 
+
+  <Outlet></Outlet>
+  {/* <div>  Hello  </div> <div>  Hello  </div> <div>  Hello  </div>
+  <div>  Hello  </div> <div>  Hello  </div> <div>  Hello  </div> */}
+  <div>  Hello  </div>
+  
+  
+   
 </>
   );
 }
 
-export default HomePage;
+export default OwnerLoginPageLayout;
