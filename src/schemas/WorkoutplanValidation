@@ -1,0 +1,9 @@
+import * as Yup from 'yup';
+
+export const WorkoutplanSignUp = Yup.object({
+  
+    day:Yup.string().required ("Please enter day"),
+  
+    description:Yup.string().required("Please enter description"),
+
+});

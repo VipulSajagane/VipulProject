@@ -13,11 +13,10 @@ function WorkoutPlan() {
       <Form.Group className="mb-3" controlId="formBasicEmail"  >
         <Form.Label>Day</Form.Label>
         <Form.Control type="text" placeholder="Enter the Day" />
-        <Form.Text className="text-muted">
-          
+        <Form.Text className="text-muted">    
         </Form.Text>
       </Form.Group>
-
+      {/* Day,Workout,WorkoutDetails */}
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Description</Form.Label>
         <Form.Control type="text" placeholder="Description" />

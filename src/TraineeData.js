@@ -9,7 +9,6 @@ const TraineeData=()=>{
     let navigate=useNavigate();
     const [responseData, setResponseData] = useState([]);
     
-
    useEffect(()=>{
     axios.get('http://localhost:8080/getAllTrainee').then((response)=>{
        
@@ -18,8 +17,6 @@ const TraineeData=()=>{
     }).catch((error)=>{
         alert(error);
             })
-
-
    },[]);
 
    const deleteCilck=(val)=>{
@@ -41,12 +38,8 @@ const TraineeData=()=>{
         //alert("In updateCilck");  
         //alert(val.id);  
         let id=val.id;
-        navigate(`updatetrainee?id=${id}`);
-        
-   }
-   
-
-    
+        navigate(`updatetrainee?id=${id}`);      
+   } 
             return(
                 <>
                  { status ? <p>Data Succesfully Updated</p>:null}
@@ -81,10 +74,7 @@ const TraineeData=()=>{
                </table>
                </div>
                </>
-
             );
-
-
 }
 
 export default TraineeData;

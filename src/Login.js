@@ -66,6 +66,8 @@ return(
     }
     
     <Link to="/ownerpage">Owner Page Layout</Link>
+    <Link to="/trainerpage">Trainer Page Layout</Link>
+    <Link to="/traineeePage">Trainee Page Layout</Link>
 
     </div>
     
