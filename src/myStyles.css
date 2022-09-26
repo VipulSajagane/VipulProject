@@ -22,7 +22,6 @@
 }
 
   .formsBackground{
-    
     background-color: white;
     width: 100%;
     border-radius: 10px;
@@ -30,11 +29,13 @@
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3) ;
     color: #fff;
     margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    margin-bottom: auto;
     
   }
 
-.moduleContents{
+  /* form inside contents */
+.moduleContents{  
     font-weight: 500;
     font-size: 15px;
     margin-left: 10px;
@@ -48,6 +49,7 @@
     margin-left: 25%;
     margin-right:25%;
     width: 50%;
+   
 }
 
 .healthDetailsHeading{
@@ -202,4 +204,59 @@ background: linear-gradient(90deg,rgba(66,2,194)0%,rgb(0,78,194)100%);
 
 .clockPositioning{
     position: relative;
+}
+.ownerProfileHeading{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.OwnerProfile{
+    margin-top: 120px;
+    font-weight: bold;
+}
+
+.checks{
+    margin-top: 200px;
+    z-index: 100;
+}
+
+.ownerProfileForm{
+    font-size: 5px;
+}
+
+.traineeProfile{
+    margin-top: 85px;
+}
+
+.traineeProfileFirstContainer{
+margin-bottom: 0;
+}
+
+.traineeProfileSecondContainerHeading{
+    text-align: center;
+}
+
+.traineeProfileSecondContainer{
+    margin-left: 25%;
+}
+
+.traineeProfileSecondContainerContent{
+    margin-left: 32%;
+}
+
+.formValidationError{
+    font-size: 12px;
+    color: red;
+}
+
+.traineeProfileHeading{
+    margin-left: 40%;
+}
+
+.trainerProfileHeading{
+    margin-left: 40%;
+}
+
+.ownerProfilePageHeading{
+    margin-left: 40%;
 }

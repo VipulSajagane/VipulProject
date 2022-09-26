@@ -6,9 +6,9 @@ const TraineeData=()=>{
     
     let[searchparams]=useSearchParams();
     let status=searchparams.get("status");
-
-    const [responseData, setResponseData] = useState([]);
     let navigate=useNavigate();
+    const [responseData, setResponseData] = useState([]);
+    
 
    useEffect(()=>{
     axios.get('http://localhost:8080/getAllTrainee').then((response)=>{
@@ -22,11 +22,26 @@ const TraineeData=()=>{
 
    },[]);
 
+   const deleteCilck=(val)=>{
+    let id=val.id;
+    let url=`http://localhost:8080/deleteTrainee/${id}`;
+   
+    axios.delete(url)
+    .then(response => {
+                //   if(response.data)
+                //   navigate('trainerdata');
+                //   else
+                //   navigate('/UpdateTrainee');
+                navigate(0);
+    })
+    .catch(error => {  alert(error);  });
+   }
 
-   const onUpdate=(val)=>{
-    
-        alert(val.id);    
-        navigate(`ownerpage/updatetrainee?val=${val}`);
+   const updateCilck=(val)=>{
+        //alert("In updateCilck");  
+        //alert(val.id);  
+        let id=val.id;
+        navigate(`updatetrainee?id=${id}`);
         
    }
    
@@ -35,13 +50,14 @@ const TraineeData=()=>{
             return(
                 <>
                  { status ? <p>Data Succesfully Updated</p>:null}
-                <div class="container mt-3">
+                <div class="container mt-5">
                 <h2>Trainee Information</h2>
                           
                 <table class="table table-striped">
                 <thead>
                  <tr>
-                  <th>Trainee Name</th>
+                 <th>Trainee ID</th>
+                  <th> Name</th>
                   <th>Age</th>
                   <th>Phone No.</th>
                   <th>Update</th>
@@ -52,11 +68,12 @@ const TraineeData=()=>{
                  {
                   responseData.map(
                    (val) => <tr key="{val.id}"  >
+                    <td>{val.id}</td>
                     <td>{val.name}</td>
                     <td>{val.age}</td>
                     <td>{val.phoneno}</td>
-    <td><p  class="btn btn-primary" onClick={()=>{onUpdate(val)}} >Update</p> </td>
-    <td><button type="button" class="btn btn-primary"  >Delete</button> </td>
+                    <td><p class="btn btn-primary" onClick={()=>{updateCilck(val)}}>Update</p></td>
+                    <td><p class="btn btn-danger" onClick={()=>{deleteCilck(val)}}>Delete</p></td>
                    </tr>
                   )
                  }

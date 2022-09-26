@@ -4,10 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { MDBRadio } from 'mdb-react-ui-kit';
 import axios from 'axios';
-import { TraineeSignUp } from './schemas/TraineeValidation';
+import { TrainerSignUp } from './schemas/TrainerValidation';
 import { useState,useEffect } from "react";
 
-const UpdateTrainee=()=>{
+const UpdateTrainer=()=>{
    
     let navigate=useNavigate();
 
@@ -18,7 +18,7 @@ const UpdateTrainee=()=>{
             let id=searchparams.get("id");
            
             const[initialValues,setInetials]=useState({
-              id:"",
+              trainerId:"",
               name:"",
               username:"",
               password:"",
@@ -26,20 +26,20 @@ const UpdateTrainee=()=>{
               age:"",
               gender:"",
               phoneno:"",
-              emailid:"",
+              email:"",
               adharno:"",
               joiningdate:"",
               address:"",
               });
    useEffect(()=>{
-     let url=`http://localhost:8080/getTrainee/${id}`;
+     let url=`http://localhost:8080/getTrainer/${id}`;
     axios.get(url).then((response)=>{
-      initialValues.id=response.data.id;
+      initialValues.trainerId=response.data.trainerId;
       initialValues.name=response.data.name;
       initialValues.username=response.data.username;
       initialValues.age=response.data.age;
       initialValues.phoneno=response.data.phoneno;
-      initialValues.emailid=response.data.emailid;
+      initialValues.email=response.data.email;
       initialValues.adharno=response.data.adharno;
       initialValues.joiningdate=response.data.joiningdate;
       initialValues.address=response.data.address;
@@ -60,15 +60,15 @@ const UpdateTrainee=()=>{
     
         const{values,errors,touched,handleChange,handleBlur,handleSubmit}=useFormik({
             initialValues,
-          validationSchema:TraineeSignUp,
+          validationSchema:TrainerSignUp,
            onSubmit:(values)=>{
        
             alert(values.gender);
               
-            axios.put('http://localhost:8080/updateTrainee',values)
+            axios.put('http://localhost:8080/updateTrainer',values)
             .then(response => {
                           if(response.data)
-                          navigate(`/traineedata?status=${response.data}`);
+                          navigate(`/trainerdata?status=${response.data}`);
                           else
                           navigate('/UpdateTrainee');
 
@@ -83,8 +83,8 @@ const UpdateTrainee=()=>{
        
     return(<>
     <div className='backgroundColor'>
-    <form action="" onSubmit={handleSubmit}className='moduleContents formsBackground traineeForm backgroundImages'>
-        <h1 className='moduleHeadings traineeHeading'>Update Trainee Information</h1>
+    <form action="" onSubmit={handleSubmit} className='moduleContents formsBackground traineeForm backgroundImages'>
+        <h1 className='moduleHeadings traineeHeading'>Update Trainer Information</h1>
         <hr/>
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Name:</Form.Label>
@@ -126,9 +126,9 @@ const UpdateTrainee=()=>{
        
       <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
       <Form.Label>Gender:</Form.Label>
-      <MDBRadio name='gender' id='male' label='Male'  value="male" onBlur={handleBlur} onChange={handleChange} disabled />
-      <MDBRadio name='gender' id='female' label='Female'  value="female" onBlur={handleBlur} onChange={handleChange} disabled/>
-      <MDBRadio name='gender' id='other' label='Other'  value="other" onBlur={handleBlur} onChange={handleChange} disabled/>
+      <MDBRadio name='gender' id='male' label='Male'  value="male" onBlur={handleBlur} onChange={handleChange}  />
+      <MDBRadio name='gender' id='female' label='Female'  value="female" onBlur={handleBlur} onChange={handleChange} />
+      <MDBRadio name='gender' id='other' label='Other'  value="other" onBlur={handleBlur} onChange={handleChange} />
       </Form.Group>
       {errors.gender && touched.gender ? (<p>{errors.gender}</p>):null}
 
@@ -143,10 +143,10 @@ const UpdateTrainee=()=>{
 
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Email-Id:</Form.Label>
-        <Form.Control type="email" placeholder="Enter your Email-Id" name="emailid"  value={values.emailid} onBlur={handleBlur} onChange={handleChange} />
+        <Form.Control type="email" placeholder="Enter your Email-Id" name="email"  value={values.email} onBlur={handleBlur} onChange={handleChange} />
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        {errors.emailid && touched.emailid ? (<p>{errors.emailid}</p>):null}
+        {errors.email && touched.email ? (<p>{errors.email}</p>):null}
 
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Adhar-No:</Form.Label>
@@ -182,4 +182,4 @@ const UpdateTrainee=()=>{
 
 };
 
-export default UpdateTrainee;
+export default UpdateTrainer;

@@ -63,7 +63,7 @@ function OwnerLoginPageLayout() {
   <Outlet></Outlet>
   {/* <div>  Hello  </div> <div>  Hello  </div> <div>  Hello  </div>
   <div>  Hello  </div> <div>  Hello  </div> <div>  Hello  </div> */}
-  <div>  Hello  </div>
+  
   
   
    
