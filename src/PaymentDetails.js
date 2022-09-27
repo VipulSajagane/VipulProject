@@ -1,24 +1,53 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import { useFormik } from 'formik';
+import { Payment } from './schemas/PaymentDetailsValidation';
+
+const initialValues={
+  
+ cardnumber:"",
+ name:"",
+ cvv:"",
+ 
+};
+
 
 function PaymentDetails() {
 
+  const{values,errors,touched,handleBlur,handleSubmit,handleChange}=useFormik({
+    initialValues,validationSchema:Payment,
+    onSubmit:(values)=>{
+      console.log(values.name);
+      console.log("in submit");
+      alert(values.name);
+    }
+
+  });
   return <>
     <div className='backgroundColor'>
-    <form className='moduleContents formsBackground paymentDetails backgroundImages'>
+    <form className='moduleContents formsBackground paymentDetails backgroundImages'onSubmit={handleSubmit}>
+    
     <h1 className='moduleHeadings paymentDetailsHeading '>Payment Details</h1>
     <hr/>
 
-      <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+      <Form.Group className="TrainerForm mb-1" controlId="formBasicPassword">
         <Form.Label>Card Number:</Form.Label>
-        <Form.Control type="number" name="name" placeholder="Enter Card Numbe" />
+        <Form.Control type="number" name="cardNumber" placeholder="Enter Card Numbe" />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
-      <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+      <div className='formValidationError'>
+                {errors.cardnumber && touched.cardnumber ?(<p>{errors.cardnumber}</p>):null}
+                </div>
+      <Form.Group className="TrainerForm mb-1" controlId="formBasicPassword">
         <Form.Label>Card Holder Name:</Form.Label>
         <Form.Control type="text" name="name" placeholder="Enter your Name" />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
+      <div className='formValidationError'>
+                {errors.name && touched.name ?(<p>{errors.name}</p>):null}
+                </div>
 
       <Form.Group className="CalorieCounter mb-3" controlId="formBasicPassword">
         <Form.Label>Month</Form.Label>
@@ -38,6 +67,7 @@ function PaymentDetails() {
           <option value="12">12</option>
         </Form.Select>
       </Form.Group>
+      
 
       <Form.Group className="CalorieCounter mb-3" controlId="formBasicPassword">
         <Form.Label>Year</Form.Label>
@@ -60,13 +90,15 @@ function PaymentDetails() {
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+      <Form.Group className="TrainerForm mb-1" controlId="formBasicPassword">
         <Form.Label>CVV</Form.Label>
         <Form.Control type="number" name="cvv" />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
 
-
+      <div className='formValidationError'>
+                {errors.cvv && touched.cvv ?(<p>{errors.cvv}</p>):null}
+                </div>
 
       <Button variant="primary" type="submit">
         Pay Now

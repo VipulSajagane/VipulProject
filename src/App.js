@@ -101,4 +101,16 @@ function BasicExample() {
   );
 }
 
+// function ProtectedRouteAdmin({ children }) {
+//   const adminSession = localStorage.getItem("owner");
+//   console.log(adminSession);
+//   // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
+//   if (!adminSession) {
+//     return <Navigate to="/login" replace={true} />;
+//   }
+
+//   return children;
+// }
+
+
 export default BasicExample;
