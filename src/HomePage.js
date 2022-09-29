@@ -41,26 +41,27 @@ function HomePage() {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link className='margin' href="#action1"><Link to='/home' className='routing'>Home</Link></Nav.Link>
+          <Nav.Link className='margin' href="#action1"><Link to='/home' className='routing navHeading'>Home</Link></Nav.Link>
          
-          <NavDropdown title="Login/Register" id="navbarScrollingDropdown">
+          <NavDropdown title="Login/Register" id="navbarScrollingDropdown" className='navHeading'>
             <NavDropdown.Item>
             <Link to="/owner" className='routing'>Owner</Link> </NavDropdown.Item>
             <NavDropdown.Item > <Link to="/trainer" className='routing'>Trainer</Link></NavDropdown.Item>
             
             <NavDropdown.Item> <Link to='/trainee' className='routing'>Trainee</Link></NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link><Link to='/caloriecounter' className='routing'> Calorie Counter</Link></Nav.Link>
-          <Nav.Link><Link to='/bmicalculator' className='routing'>BMI Calculator</Link></Nav.Link>
+          <Nav.Link><Link to='/caloriecounter' className='routing navHeading'> Calorie Counter</Link></Nav.Link>
+          <Nav.Link><Link to='/bmicalculator' className='routing navHeading'>BMI Calculator</Link></Nav.Link>
+          <Nav.Link><Link to='/aboutus' className='routing navHeading'>About Us</Link></Nav.Link>
         </Nav>
-        <Form className="d-flex">
+        <Form className="d-flex navHeading">
           <Form.Control
             type="search"
             placeholder="Search"
-            className="me-2"
+            
             aria-label="Search"
           />
-          <Button variant="outline-success">Search</Button>
+          <Button className='searchButton'>Search</Button>
         </Form>
       </Navbar.Collapse>
     </Container>

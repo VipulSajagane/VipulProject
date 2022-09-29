@@ -8,7 +8,7 @@ export const healthDetails=Yup.object({
 
     dob:Yup.date().required("*Please enter your date of birth"),
 
-    bloodgroup:Yup.string().required("*Please enter you bloodgroup"),
+    bloodGroup:Yup.string().required("*Please enter you bloodgroup"),
 
     // check:Yup.string().required("*Please check this checkbox"),
 })

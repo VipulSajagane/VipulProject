@@ -4,29 +4,44 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useFormik } from 'formik';
 import { calorie } from './schemas/calorieCalValidation';
+import { Component } from 'react';
+import  { useState } from "react";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const initialValues={
-     age:"",
-    height:"",
-    weight:"",
-    activity:"",
-  };
+  age:"",
+ height:"",
+ weight:"",
+ activity:"",
+};
 
+function CalorieCalculator() {
+        const [age, setAge] = useState(0);
+        const [height, setHeight] = useState(0);
+        const [weight, setWeight] = useState(0); 
+        const [activity, setActivity] = useState(0);
+        const [calorie,setCalorie] = useState(0);
 
-const CalorieCounter=()=>{
-        
-    const{values,errors,touched,handleBlur,handleSubmit,handleChange}=useFormik({
-        initialValues,validationSchema:calorie,
-        onSubmit:(values)=>{
-          console.log(values.age);
-          console.log("in submit");
-          alert(values.gender);
-        }
+       
+        const {values,errors,touched,handleBlur,handleSubmit,handleChange }=useFormik({
+           initialValues
+        });
+
+        const calculate = (e) => {
+          alert(height);
+          alert(weight);
+          e.preventDefault();
+          const formValid = height > 0 && weight > 0;
+          if (!formValid) {
+            return;
+          }
+          const calorie = ((10.0 * weight)+(6.25 * height)-(5.0 * age))+5
+          setCalorie(calorie);
+        };
     
-      })
- 
-
+        
     return (
         <>
         <div className='backgroundColor'>
@@ -35,7 +50,7 @@ const CalorieCounter=()=>{
             <hr />
                 <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Age</Form.Label>
-                    <Form.Control type="number" name="age" value={values.age} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter Your Age" />
+                    <Form.Control type="number" name="age" value={age} onBlur={handleBlur} onChange={(e)=>setAge(e.target.value)}placeholder="Enter Your Age" />
                     <Form.Text className="text-muted">
                     </Form.Text>
                 </Form.Group>
@@ -45,7 +60,7 @@ const CalorieCounter=()=>{
 
                 <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Height</Form.Label>
-                    <Form.Control type="number" name="height" value={values.height} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter your height" />
+                    <Form.Control type="number" name="height" value={height} onBlur="{handleBlur}"  onChange={(e)=>setHeight(e.target.value)} placeholder="Enter your height" />
                     <Form.Text className="text-muted">
                     </Form.Text>
                 </Form.Group>
@@ -55,7 +70,7 @@ const CalorieCounter=()=>{
 
                 <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Weight</Form.Label>
-                    <Form.Control type="number" name="weight" value={values.weight} onBlur={handleBlur}  onChange={handleChange} placeholder="Enter your Weight" />
+                    <Form.Control type="number" name="weight" value={weight} onBlur={handleBlur} onChange={(e)=>setWeight(e.target.value)} placeholder="Enter your Weight" />
                     <Form.Text className="text-muted">
                     </Form.Text>
                 </Form.Group>
@@ -66,7 +81,7 @@ const CalorieCounter=()=>{
                 <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Activity</Form.Label>
                     
-                    <Form.Select aria-label="Default select example" name="activity" value={values.activity} onBlur={handleBlur}  onChange={handleChange}>
+                    <Form.Select aria-label="Default select example" name="activity" value={activity} onBlur={handleBlur}  onChange={(e)=>setActivity(e.target.value)}>
                         <option>Select menu</option>
                         <option value="1">No Exercise</option>
                         <option value="2">Light: exercise 1-3 times/weeko</option>
@@ -81,13 +96,14 @@ const CalorieCounter=()=>{
                 {errors.activity && touched.activity ?(<p>{errors.activity}</p>):null}
                 </div>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" onClick={calculate}>
+                   calculate
                 </Button>
+                <button className='btn btn-success calorieButton' ><centre>Your calories: {calorie}</centre></button>
             </form>
+           
             </div>
         </>
     );
 }
-
-export default CalorieCounter
+export default CalorieCalculator;

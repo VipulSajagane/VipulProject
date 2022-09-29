@@ -5,7 +5,7 @@ export const TraineeSignUp=Yup.object({
     username:Yup.string().min(4).max(12).required("*Please enter your username"),
     password:Yup.string().min(4).max(12).required("*Please enter your password"),
     confirm_password:Yup.string().min(4).max(12).required("*Please enter your re-enter password").oneOf([Yup.ref("password"),null], "Password must match"),
-    age:Yup.number().positive("*Age must be positive").required("*Please enter your Age").min(0,"*Age must be in between 0 to 150").max(0,"*Age must be in between 0 to 150"),
+    age:Yup.number().positive("*Age must be positive").required("*Please enter your Age").min(0,"*Age must be in between 0 to 150").max(150,"*Age must be in between 0 to 150"),
     gender:Yup.string().required("*Please select your gender"),
     phoneno:Yup.string().required("*Please enter your phone number").matches(/^[0-9]+$/, "Must be only digits").min(10,'*Must be exactly 10 digits').max(10,'*Must be exactly 10 digits'),
     emailid:Yup.string().min(4).required("*Please enter your email"),

@@ -1,92 +1,87 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useFormik } from "formik";
+import { MDBRadio } from 'mdb-react-ui-kit';
 import axios from 'axios';
-import {healthDetails} from './schemas/HealthDeatailsValid';
+import { useFormik } from "formik";
+import {healthDetails} from './schemas/HealthDeatailsValid'
+
 const initialValues={
-  
     height:"",
     weight:"",
     dob:"",
-    bloodgroup:"",
-    // check:""
-};
-const HealthDetails=()=>{
+    bloodGroup:""
+    
+  };
 
-  const{values,errors,touched,handleBlur,handleSubmit,handleChange}=useFormik({
-    initialValues,validationSchema:healthDetails,
-    onSubmit:(values)=>{
-      console.log(values);
-      alert(values.height);
+const HealthDetails = ()=>
+{
 
-      axios.post('http://localhost:8080/putHealthDetails',values)
-      .then(response =>{
-        alert(response.data);
-      })
-      .catch(error =>{
-        alert(error);
-      })
-    },
-  });
+    const {values,errors,touched,handleBlur,handleSubmit,handleChange }=useFormik({
+        initialValues,
+        validationSchema:healthDetails,
+        onSubmit:(values)=>{
+          
+          // console.log("in submit"+values);
+         
+          // alert(JSON.stringify(values))
+    
+          axios.post('http://localhost:8080/putHealthDetails',values)
+          .then(response => {
+            if(response.data)
+           // navigate(`/owner?status=${response.data}`);
+           alert("data added")
+          
+    
+    })
+    .catch(error => {  alert(error);  });
+        },
+     });
 
 
+    return(
+        <>
+        <div className='backgroundColor'>
+        
+        <Form  action="" onSubmit={handleSubmit}    className='moduleContents formsBackground workoutPlan backgroundImages'> 
+        <h1 className='moduleHeadings workoutPlanHeading'>HealthDetails</h1>
+        <hr/>
+          <Form.Group className="mb-3" controlId="formBasicEmail"  >
+            <Form.Label>Height</Form.Label>
+            <Form.Control type="number" placeholder="Enter the Height" name="height"    value={values.height} onBlur={handleBlur} onChange={handleChange}   />
+            <Form.Text className="text-muted">  </Form.Text>
+          </Form.Group>
+          {errors.height && touched.height ? (<p>{errors.height}</p>):null}
+    
+    
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Weight</Form.Label>
+            <Form.Control type="number" placeholder="weight" name="weight"    value={values.weight} onBlur={handleBlur} onChange={handleChange} />
+          </Form.Group>
+          {errors.weight && touched.weight ? (<p>{errors.weight}</p>):null}
+    
+    
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>date of Birth</Form.Label>
+            <Form.Control type="date" placeholder="date of birth" name="dob"    value={values.dateOfBirth} onBlur={handleBlur} onChange={handleChange} />
+          </Form.Group>
+          {errors.dob && touched.dob ? (<p>{errors.dob}</p>):null}
+    
 
-  return (
-    <>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Blood Group</Form.Label>
+            <Form.Control type="text" placeholder="bloodGroup" name="bloodGroup"    value={values.bloodGroup} onBlur={handleBlur} onChange={handleChange} />
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
+          {errors.bloodGroup && touched.bloodGroup ? (<p>{errors.bloodGroup}</p>):null}
 
-    <div className='backgroundColor'>
-    <Form className='moduleContents formsBackground healthDetails backgroundImages' onSubmit={handleSubmit} > 
-    <h1 className='moduleHeadings healthDetailsHeading'>Health Details</h1>
-    <hr/>
-        <Form.Group className="HealthDetails" controlId="">
-        <Form.Label>Height</Form.Label>
-        <Form.Control type="text" name="height" value={values.height} onBlur={handleBlur}  onChange={handleChange} placeholder="Enter your Height" />
-        <Form.Text className="text-muted"> 
-        </Form.Text>
-        <div className='formValidationError'>
-        {errors.height && touched.height ?(<p>{errors.height}</p>):null}
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
         </div>
-
-        </Form.Group>
-      <Form.Group className="HealthDetails" controlId="">
-        <Form.Label>Weight</Form.Label>
-        <Form.Control type="text" name="weight"  value={values.weight} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter your Weight"/>
-      </Form.Group>
-      <div className='formValidationError'>
-        {errors.weight && touched.weight ?(<p>{errors.weight}</p>):null}
-        </div>
-
-      <Form.Group className="HealthDetails " controlId="">
-        <Form.Label>Date Of Birth</Form.Label>
-        <Form.Control type="date" name="date"  value={values.date} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter your Date of Birth" />
-      </Form.Group>
-      <div className='formValidationError'>
-        {errors.date && touched.date ?(<p>{errors.date}</p>):null}
-        </div>
-
-      <Form.Group className="HealthDetails" controlId="">
-        <Form.Label>Blood Group</Form.Label>
-        <Form.Control type="text" name="bloodgroup"  value={values.bloodgroup} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter your Bloodgroup" />
-      </Form.Group>
-      <div className='formValidationError'>
-        {errors.bloodgroup && touched.bloodgroup ?(<p>{errors.bloodgroup}</p>):null}
-        </div>
-
-      {/* <Form.Group className="HealthDetails " controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" name="check" label="Confirm" />
-      </Form.Group> */}
-      {/* <div className='formValidationError'>
-        {errors.check && touched.check ?(<p>{errors.check}</p>):null}
-        </div> */}
-
-
-      <Button className='button' variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-    </div>
-    </>
-  );
+        </>
+      
+    );
 }
 
 export default HealthDetails;

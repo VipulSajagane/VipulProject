@@ -7,12 +7,14 @@ import axios from 'axios';
 import { TraineeSignUp } from './schemas/TraineeValidation';
 import { useState,useEffect } from "react";
 
-const UpdateTrainee=()=>{
+const UpdateTrainerTrainee=()=>{
    
     let navigate=useNavigate();
 
     let[searchparams]=useSearchParams();
-   
+  
+       
+  
             let id=searchparams.get("id");
            
             const[initialValues,setInetials]=useState({
@@ -177,4 +179,4 @@ const UpdateTrainee=()=>{
 
 };
 
-export default UpdateTrainee;
+export default UpdateTrainerTrainee;

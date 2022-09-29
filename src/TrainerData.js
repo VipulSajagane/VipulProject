@@ -31,7 +31,6 @@ const TrainerData=()=>{
         alert(error);
             })
 
-
    },[]);
 
    const deleteCilck=(val)=>{

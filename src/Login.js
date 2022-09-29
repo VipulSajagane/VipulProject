@@ -1,80 +1,127 @@
-import { useState } from "react";
-import { useSearchParams,Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { useSearchParams,Link, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
 
 const Login=()=>{
-    let[searchparams]=useSearchParams();
-       let status=searchparams.get("status");
-    const[inputs,setInputs]=useState({}); 
-    const[forgotpassword,setforgotpassword]=useState(false);
-        const changeHandler=(event)=>{
-            let paramName=event.target.name;
-            let paramValue=event.target.value;
-            setInputs((values)=>({...values,[paramName]:paramValue}));
+    let formRef = useRef();
+    let navigate = useNavigate();
+    let [isError, setIsError] = useState(false);
+    let [response, setResponse] = useState(false);
+    let [user, setUser] = useState({ username: "", password: "" });
+    let inputChangeHadler = (e) => {
+      const newuser = { ...user, [e.target.name]: e.target.value };
+      setUser(newuser);
+    };
+  
+    const processLogin = async (e) => {
+      try {
+        // validation
+        e.preventDefault();
+        e.stopPropagation();
+  
+        formRef.current.classList.add("was-validated");
+        if (!formRef.current.checkValidity()) {
+          return;
         }
-const submitHandler=(event)=>{
-        event.preventDefault();
-        alert(JSON.stringify(inputs));
-        
-    }
-    const passwordHandler=()=>{
-        setforgotpassword(true);
-    }
+     
+            let username=user.username;
+            let password=user.password;
+
+        // api call
+       const url = `http://localhost:8080/getLogin/${username}/${password}`;
+        const resp = await axios.get(url);
+            let role=resp.data.role;
+            localStorage.setItem("status",resp.data.status);
+
+        if (role=="owner") {
+          // store jwt
+          // let data = resp.data.jwt;
+         
+  
+          // forward the user to home page
+          navigate('/ownerpage');
+        }
+        else if (role=="trainer") {
+           
+            navigate('/trainerpage');
+          }
+          else if (role=="trainee") {
+           
+            navigate('/traineeePage');
+          }else{
+
+                setResponse(true);
+                setTimeout(() => setResponse(false), 2500);
+          }
+
+      } catch (e) {
+        console.error(e);
+        setIsError(true);
+  
+        setTimeout(() => setIsError(false), 2500);
+      }
+    };
+
+
+
+
+
+
+
+
+
 
 return(
-    <>    
+  
 
 <div className="backgroundColor">
-    {forgotpassword ?
-<form onSubmit={submitHandler} className='moduleContents formsBackground moduleContents loginPage backgroundImages'>
-        <h2 className='text-center text-primary'>Forgot Password</h2>
+    
+<form  className='moduleContents formsBackground moduleContents loginPage backgroundImages needs-validation ' ref={formRef}>
+        <h2 className='text-center text-primary'>Login</h2>
         <hr/>
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
-        <Form.Label>Name:</Form.Label>
-        <Form.Control  onChange={changeHandler} value={inputs.name} class="form-control " id="name" placeholder="Enter your Name" />
+        <Form.Label>Username:</Form.Label>
+        <Form.Control  class="form-control " name="username" id="username" placeholder="Enter your Username"  onChange={inputChangeHadler}
+            required />
         <Form.Text className="text-muted"></Form.Text>
+        <div className="invalid-feedback">Username is required</div>
         </Form.Group>
 
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
-        <Form.Label>Date of Birth :</Form.Label>
-        <Form.Control type="date" name="dob" onChange={changeHandler} value={inputs.dob} class="form-control" id="dob"/>
+        <Form.Label>Password :</Form.Label>
+        <Form.Control type="password" name="password"  onChange={inputChangeHadler} class="form-control" id="password" placeholder="Enter your Password"  required/>
         <Form.Text className="text-muted"></Form.Text>
+        <div className="invalid-feedback">Password is required</div>
         </Form.Group>
 
-        <Button className="ownerFormButton" variant="primary" type="submit">
+        <Button className="ownerFormButton" variant="primary" onClick={processLogin}>
         Submit
       </Button>
-   
-    </form>
-    :
-    <form class="form-controller container moduleContents formsBackground moduleContents loginPage backgroundImages" onSubmit={submitHandler}>
-    <h2 class="text-center loginHeading" >Login Page</h2>
-  <div>
-  <lable for="username"  class="form-label" >Username : </lable>
-  <input type="text" name="username" onChange={changeHandler} value={inputs.username} class="form-control " id="userName"/>
-  </div>
-  <div>
-  <lable for="password"  class="form-label"  onChange={changeHandler}>Password : </lable>
-  <input type="password" name="password" onChange={changeHandler} value={inputs.password} class="form-control" id="password"/>
-  </div>
-  <button type="submit" class="form-control mt-4 btn btn-primary">Login</button>
-  <div button className="loginPage loginHeading"  name="fogot" id="fogot " onClick={passwordHandler}>forgot password ?</div>
-  { status ? <p>You are Succesfully register.</p>:null}
-  </form>
-  
-    }
-    
+
+      {isError && (
+          <div className="alert alert-danger">
+            Invalid Credentials or Network Error!
+          </div>
+        )}
+        {response && (
+          <div className="alert alert-danger">
+            Invalid Credentials ..Try Again!
+          </div>
+        )}
+
+
+    </form>    
+
+       
     <Link to="/ownerpage">Owner Page Layout</Link>
     <Link to="/trainerpage">Trainer Page Layout</Link>
     <Link to="/traineeePage">Trainee Page Layout</Link>
-
     </div>
-    
-    </>
     );
 
-
 }
+
 
 export default Login;

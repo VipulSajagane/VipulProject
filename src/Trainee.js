@@ -53,6 +53,7 @@ const Trainee=()=>{
         <Form.Control type="text" name="name" value={values.name} onBlur={handleBlur} onChange={handleChange}  placeholder="Enter your Name" />
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
+        <div className='formValidationError'></div>
          {errors.name && touched.name ? (<p>{errors.name}</p>):null}
 
 

@@ -2,7 +2,30 @@ import React from 'react';
 import {MDBCol,MDBContainer,MDBRow,MDBCard,MDBCardText,MDBCardBody,MDBCardImage
 } from 'mdb-react-ui-kit';
 import profilepic from './Images/profilepic.jpg'
+import {  useState,useEffect } from "react";
+import {Link, useNavigate,useSearchParams} from 'react-router-dom';
+import axios from 'axios';
+
 const TrainerProfile=()=>{
+  let[searchparams]=useSearchParams();
+  let status=searchparams.get("status");
+  let navigate=useNavigate();
+  const [responseData, setResponseData] = useState({});
+  
+ useEffect(()=>{
+  axios.get('http://localhost:8080/getTrainer/1').then((response)=>{
+     
+      setResponseData(response.data);
+      // alert(responseData.name)
+      alert(JSON.stringify(responseData));
+ 
+      console.log(responseData);
+   
+  }).catch((error)=>{
+      alert(error);
+          })
+ },[]);
+
 return (
     <>
      <section style={{ backgroundColor: '#eee' }}>
@@ -34,7 +57,7 @@ return (
                     <MDBCardText>Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Kahitari Naav</MDBCardText>
+                    <MDBCardText className="text-muted">{responseData.name}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -43,7 +66,7 @@ return (
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">kahitari@gmail.com</MDBCardText>
+                    <MDBCardText className="text-muted">{responseData.email}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -52,7 +75,7 @@ return (
                     <MDBCardText>Phone</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">9999999999</MDBCardText>
+                    <MDBCardText className="text-muted">{responseData.phoneno}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -61,7 +84,7 @@ return (
                     <MDBCardText>Aadhar Number</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">123456789012</MDBCardText>
+                    <MDBCardText className="text-muted">{responseData.adharno}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -70,7 +93,7 @@ return (
                     <MDBCardText>Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Home,sweet home</MDBCardText>
+                    <MDBCardText className="text-muted">{responseData.address}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                  
@@ -80,7 +103,7 @@ return (
                     <MDBCardText>Date of Joining</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">10-10-2010</MDBCardText>
+                    <MDBCardText className="text-muted">{responseData.joiningdate}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 

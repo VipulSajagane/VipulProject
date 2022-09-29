@@ -1,8 +1,10 @@
+// Vipuls project
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import HealthDetails from './HealthDetails';
 import WorkoutPlan from './WorkoutPlan';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes,Navigate } from "react-router-dom";
 import PaymentDetails from './PaymentDetails';
 import home from './HomePage';
 import HomePage from './HomePage';
@@ -25,33 +27,25 @@ import TrainerProfile from './TrainerProfile';
 import TraineeProfile from './TraineeProfile';
 import DietPlan from './DietPlan';
 import TraineeeLoginPageLayout from './TraineeeLoginPageLayout.js';
+import  Sir from './Images/Sir.jpeg'
+import Aboutus from './AboutUs';
+import UpdateWorkoutPlan from './UpdateWorkoutPlan';
+
+
 
 
 function BasicExample() {
   return (
    <>
-   {/* <MembershipPlan/> */}
-   {/* <CalorieCounter/> */}
-   {/* <PaymentDetails/> */}
-   {/* <BMICalculator/> */}
-   {/* <TrainerForm/> */}
-   {/* <WorkoutPlan/> */}
-   {/* <TrainerForm/>    --- Not in use*/}
-   {/* <Trainee/> */}
-    {/* <Login/>            */}
-    {/* <OwnerForm/>      */}
-    {/* <HealthDetails/> */}
-   {/* <HomePage/> */}
-   {/* <TrainerLoginPageLayout/> */}
-
-   <div>
+  <div>
   <BrowserRouter>
     <Routes>
             <Route path='/' element={<><HomePage/><HomeSubComponent/></>}>  </Route>
             <Route path='/home' element={<><HomePage/><HomeSubComponent/></>}></Route>
+            <Route path='aboutus' element={<><HomePage/><Aboutus/></>}> </Route>
             <Route path='/trainee' element={<><HomePage/><Trainee/></>}> </Route>
              <Route path='/trainer' element={<><HomePage/><TrainerForm/></>}></Route>
-                <Route path='login' element={<Login/>}></Route>
+                <Route path='login' element={<><HomePage/><Login/></>}></Route>
                 <Route path='/owner' element={<><HomePage/><Login/></>}></Route>
                 <Route path='healthdetails' element={<HealthDetails/>}></Route>
                 <Route path='workoutplan' element={<WorkoutPlan/>}></Route>
@@ -60,36 +54,40 @@ function BasicExample() {
             <Route path='/bmicalculator' element={<><HomePage/><BMICalculator/></>}></Route>
                 <Route path='caloriecounter' element={<><HomePage/><CalorieCounter/></>}></Route>
                 <Route path='membershipplan' element={<><HomePage/><MembershipPlan/></>}></Route>  
+
+                {/* <Route path='/logout' element={<Logout></Logout>}>  </Route> */}
       
        {/* Owner Perspective */}
        <Route>      
-       <Route path='ownerpage' element={<><OwnerLoginPageLayout/><OwnerProfile/></>}></Route>
-      <Route path='traineedata/' element={<><OwnerLoginPageLayout/><TraineeData/></>}></Route>
-      <Route path='trainerdata' element={<><OwnerLoginPageLayout/><TrainerData/></>}></Route>
-       <Route path='ownerprofile' element={<><OwnerLoginPageLayout/><OwnerProfile/></>}></Route>   
-       <Route path='traineedata/updatetrainee' element={<><OwnerLoginPageLayout/><UpdateTrainee/></>}></Route>
-       <Route path='trainerdata/updatetrainer' element={<><OwnerLoginPageLayout/><UpdateTrainer/></>}></Route>
-      <Route path='ownerbmicalculator' element={<><OwnerLoginPageLayout/><BMICalculator/></>}></Route>
-      <Route path='ownercaloriecounter' element={<><OwnerLoginPageLayout/><CalorieCounter/></>}></Route>
+       <Route path='ownerpage' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><OwnerProfile/></ProtectedRouteOwner>}></Route>
+      <Route path='traineedata/' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><TraineeData/></ProtectedRouteOwner>}></Route>
+      <Route path='trainerdata' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><TrainerData/></ProtectedRouteOwner>}></Route>
+       <Route path='ownerprofile' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><OwnerProfile/></ProtectedRouteOwner>}></Route>   
+       <Route path='traineedata/updatetrainee' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><UpdateTrainee/></ProtectedRouteOwner>}></Route>
+       <Route path='trainerdata/updatetrainer' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><UpdateTrainer/></ProtectedRouteOwner>}></Route>
+      <Route path='ownerbmicalculator' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><BMICalculator/></ProtectedRouteOwner>}></Route>
+      <Route path='ownercaloriecounter' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><CalorieCounter/></ProtectedRouteOwner>}></Route>
    </Route>
  
   {/* Trainer Perspective */}
   <Route>
   {/* <Route path='HomePage' element={<><HomePage/></>}></Route>  */}
-  <Route path='trainerpage' element={<><TrainerLoginPageLayout/><TrainerProfile/></>}></Route>
-  <Route path='trainertraineedata/' element={<><TrainerLoginPageLayout/><TraineeData/></>}></Route>
-  <Route path='trainertraineedata/updatetrainee' element={<><TrainerLoginPageLayout/><UpdateTrainee/></>}></Route>
-  <Route path='trainerworkoutplan' element={<><TrainerLoginPageLayout/><WorkoutPlan/></>}></Route>
-  <Route path='trainerbmicalculator' element={<><TrainerLoginPageLayout/><BMICalculator/></>}></Route>
-  <Route path='trainercaloriecounter' element={<><TrainerLoginPageLayout/><CalorieCounter/></>}></Route>
+  <Route path='trainerpage' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TrainerProfile/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainertraineedata/' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TraineeData/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainertraineedata/updatetrainee' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><UpdateTrainee/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainerworkoutplan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutPlan/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainerworkoutplaninfo' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><UpdateWorkoutPlan/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainerbmicalculator' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><BMICalculator/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainercaloriecounter' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><CalorieCounter/></ProtectedRouteTrainer>}></Route>
   </Route>
 
   <Route>
-  <Route path='traineeePage' element={<><TraineeeLoginPageLayout/><TraineeProfile/></>}></Route>
-  <Route path='traineeworkoutplan' element={<><TraineeeLoginPageLayout/><WorkoutPlan/></>}></Route>
-  <Route path='traineedietplan' element={<><TraineeeLoginPageLayout/><DietPlan/></>}></Route>
-  <Route path='traineebmicalculator' element={<><TraineeeLoginPageLayout/><BMICalculator/></>}></Route>
-  <Route path='traineecaloriecounter' element={<><TraineeeLoginPageLayout/><CalorieCounter/></>}></Route>
+  <Route path='traineeePage' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><TraineeProfile/></ProtectedRouteTrainee>}></Route>
+  <Route path='traineeworkoutplan' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><WorkoutPlan/></ProtectedRouteTrainee>}></Route>
+  <Route path='traineehealthdetails' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><HealthDetails/></ProtectedRouteTrainee>}></Route>
+  <Route path='traineedietplan' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><DietPlan/></ProtectedRouteTrainee>}></Route>
+  <Route path='traineebmicalculator' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><BMICalculator/></ProtectedRouteTrainee>}></Route>
+  <Route path='traineecaloriecounter' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><CalorieCounter/></ProtectedRouteTrainee>}></Route>
   </Route>
   
 </Routes>
@@ -101,16 +99,37 @@ function BasicExample() {
   );
 }
 
-// function ProtectedRouteAdmin({ children }) {
-//   const adminSession = localStorage.getItem("owner");
-//   console.log(adminSession);
-//   // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
-//   if (!adminSession) {
-//     return <Navigate to="/login" replace={true} />;
-//   }
+function ProtectedRouteOwner({ children }) {
+  const ownerSession = localStorage.getItem("status");
+  console.log(ownerSession);
+  // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
+  if (ownerSession=="valid") {
+    return children;
+  }
+  return <Navigate to="/login" replace={true} />;
+ 
+}
 
-//   return children;
-// }
+function ProtectedRouteTrainee({ children }) {
+  const traineeSession = localStorage.getItem("status");
+  console.log(traineeSession);
+  // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
+  if (traineeSession=="valid") {
+    return children;
+  }
+  return <Navigate to="/login" replace={true} />;
+}
+
+function ProtectedRouteTrainer({ children }) {
+  const trainerSession = localStorage.getItem("status");
+  console.log(trainerSession);
+  // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
+  if (trainerSession=="valid") {
+    return children;
+  }
+  return <Navigate to="/login" replace={true} />;
+}
+
 
 
 export default BasicExample;
