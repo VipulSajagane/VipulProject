@@ -10,14 +10,15 @@ import axios from 'axios';
 const TraineeProfile=()=>{
 
   let[searchparams]=useSearchParams();
-  let status=searchparams.get("status");
+
+  let username=searchparams.get("username");
   let navigate=useNavigate();
   const [responseData, setResponseData] = useState({});
   const [healthData,setHealthData] = useState({});
 
   
  useEffect(()=>{
-  axios.get('http://localhost:8080/getTrainee').then((response)=>{
+  axios.get(`http://localhost:8080/getTraineeByName/${username}`).then((response)=>{
      
       setResponseData(response.data);
       alert(JSON.stringify(responseData));
@@ -31,7 +32,7 @@ const TraineeProfile=()=>{
 
 
  useEffect(()=>{
-  axios.get('http://localhost:8080/getHealthDetails').then((response)=>{
+   axios.get(`http://localhost:8080/getHealthDetailsByName`).then((response)=>{
      
     setHealthData(response.data);
     alert(JSON.stringify(healthData)); 

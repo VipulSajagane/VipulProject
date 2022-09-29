@@ -13,6 +13,8 @@ const initialValues={
 
 const WorkoutPlan =()=> {
 
+  alert("Hello....");
+
   const {values,errors,touched,handleBlur,handleSubmit,handleChange }=useFormik({
     initialValues,
     validationSchema:Workoutpp,

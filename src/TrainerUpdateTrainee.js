@@ -63,7 +63,7 @@ const TrainerUpdateTrainee=()=>{
             axios.put('http://localhost:8080/updateTrainee',values)
             .then(response => {
                           if(response.data)
-                          navigate(`/trainertraineedata ? status=${response.data}`);
+                          navigate(`/trainertraineedata?status=${response.data}`);
                           else
                           navigate('/trainerupdatetrainee');
 

@@ -49,18 +49,19 @@ const Login=()=>{
         if (role=="owner") {
           // store jwt
           // let data = resp.data.jwt;
-         
+       // console.log(resp.data.id)
   
           // forward the user to home page
-          navigate('/ownerpage');
+          navigate(`/ownerpage?username=${username}`);
         }
         else if (role=="trainer") {
            
-            navigate('/trainerpage');
+            navigate(`/trainerpage?username=${username}`);
+           // navigate(`updatetrainer?id=${id}`)
           }
           else if (role=="trainee") {
            
-            navigate('/traineeePage');
+            navigate(`/traineeePage?username=${username}`);
           }else{
 
                 setResponse(true);

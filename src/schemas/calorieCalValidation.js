@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const calorie=Yup.object({
+export const calorieValidation=Yup.object({
   
     age:Yup.number().positive("*Age must be positive").required("*Please enter your Age").min(0,"*Age must be in between 0 to 150").max(150,"*Age must be in between 0 to 150"),
 

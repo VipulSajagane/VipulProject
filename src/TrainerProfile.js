@@ -8,12 +8,12 @@ import axios from 'axios';
 
 const TrainerProfile=()=>{
   let[searchparams]=useSearchParams();
-  let status=searchparams.get("status");
+  let username=searchparams.get("username");
   let navigate=useNavigate();
   const [responseData, setResponseData] = useState({});
   
  useEffect(()=>{
-  axios.get('http://localhost:8080/getTrainer/1').then((response)=>{
+  axios.get(`http://localhost:8080/getTrainerbyname/${username}`).then((response)=>{
      
       setResponseData(response.data);
       // alert(responseData.name)

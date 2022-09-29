@@ -3,30 +3,32 @@ import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useFormik } from 'formik';
-import { calorie } from './schemas/calorieCalValidation';
+import { BMIcal } from './schemas/BMICalValidation';
 import  { useState } from "react";
 
 const initialValues={
      age:"",
     height:"",
     weight:"",
-    activity:"",
-    calories:"",
+   
+    
   };
 
 
 const BMICalculator=()=>{
         
-    
+    let[bmi,setBmi]=useState(0);
 
     const{values,errors,touched,handleBlur,handleSubmit,handleChange}=useFormik({
-        initialValues,validationSchema:calorie,
+        initialValues,
+        validationSchema:BMIcal,
         onSubmit:(values)=>{
           console.log(values.age);
-          console.log("in submit");
+          //alert("in submit");
 
-           values.calories = ((10.0 * values.weight)+(6.25 * values.height)-(5.0 * values.age))+5;
-   
+         let cal = ((10.0 * values.weight)+(6.25 * values.height)-(5.0 * values.age))+5;
+          // alert(cal);
+           setBmi(cal);
 
         }
     
@@ -68,16 +70,14 @@ const BMICalculator=()=>{
                 <div className='formValidationError'>
                 {errors.weight && touched.weight ?(<p>{errors.weight}</p>):null}
                 </div>
-
-              
-              
-
+        
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                <button className='btn btn-success calorieButton' ><centre>Your calories: {values.calories}</centre></button>
+                
             </form>
             </div>
+            <button className='btn btn-success calorieButton' ><centre>Your calories: {bmi}</centre></button>
         </>
     );
 }

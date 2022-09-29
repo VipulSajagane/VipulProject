@@ -25,8 +25,18 @@ const TraineeDataInTrainer=()=>{
         //alert("In updateCilck");  
         //alert(val.id);  
         let id=val.id;
-        navigate(`trainertraineedata/trainerupdatetrainee ?id=${id}`);      
+        navigate(`/trainerupdatetrainee?id=${id}`);      
    } 
+        const updateWorkoutCilck=(val)=>{
+            //alert("In updateCilck");  
+            //alert(val.id);  
+            let id=val.id;
+            navigate(`workoutplan?id=${id}`);      
+        } 
+
+
+
+
             return(
                 <>
                  { status ? <p>Data Succesfully Updated</p>:null}
@@ -41,7 +51,7 @@ const TraineeDataInTrainer=()=>{
                   <th>Age</th>
                   <th>Phone No.</th>
                   <th>Update</th>
-                 
+                  <th>Workout Plan</th>
                  </tr>
                 </thead>
                 <tbody>
@@ -53,6 +63,7 @@ const TraineeDataInTrainer=()=>{
                     <td>{val.age}</td>
                     <td>{val.phoneno}</td>
                     <td><p class="btn btn-primary" onClick={()=>{updateCilck(val)}}>Update</p></td>
+                    <td><p class="btn btn-primary" onClick={()=>{updateWorkoutCilck(val)}}>Check/Update</p></td>
                    
                    </tr>
                   )

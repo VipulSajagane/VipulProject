@@ -26,6 +26,13 @@ const TrainerTraineeData=()=>{
         let id=val.id;
         navigate(`updatetrainee?id=${id}`);      
    } 
+   const updateWorkoutCilck=(val)=>{
+    //alert("In updateCilck");  
+    //alert(val.id);  
+    let id=val.id;
+    navigate(`workoutplan?id=${id}`);      
+} 
+
             return(
                 <>
                  { status ? <p>Data Succesfully Updated</p>:null}
@@ -40,7 +47,7 @@ const TrainerTraineeData=()=>{
                   <th>Age</th>
                   <th>Phone No.</th>
                   <th>Update</th>
-                  
+                  <th>Workout Plan</th>
                  </tr>
                 </thead>
                 <tbody>
@@ -52,7 +59,7 @@ const TrainerTraineeData=()=>{
                     <td>{val.age}</td>
                     <td>{val.phoneno}</td>
                     <td><p class="btn btn-primary" onClick={()=>{updateCilck(val)}}>Update</p></td>
-                   
+                    <td><p class="btn btn-primary" onClick={()=>{updateWorkoutCilck(val)}}>Update</p></td>
                    </tr>
                   )
                  }
