@@ -10,10 +10,10 @@ const DietPlan = () => {
     // const diet = JSON.parse(dietData);
 
     useEffect(()=>{
-        axios.get('http://localhost:8080/getDietPlan/3').then((response)=>{
+        axios.get('http://localhost:8080/getDietPlan/1').then((response)=>{
            
           setDietData(response.data);
-          alert(JSON.stringify(dietData.Lunch));           
+          alert(JSON.stringify(dietData));           
         }).catch((error)=>{
             alert(error);
                 })
@@ -23,7 +23,7 @@ const DietPlan = () => {
  return(<>
 <h1 className="dietPlanHeading">Diet Plan Page</h1>
  {/* <h3>{diet}</h3> */}
- <h3>{dietData.Lunch}</h3>
+ <h3>{dietData}</h3>
 
  </>)
 

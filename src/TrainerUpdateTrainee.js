@@ -7,14 +7,12 @@ import axios from 'axios';
 import { TraineeSignUp } from './schemas/TraineeValidation';
 import { useState,useEffect } from "react";
 
-const UpdateTrainerTrainee=()=>{
+const TrainerUpdateTrainee=()=>{
    
     let navigate=useNavigate();
 
     let[searchparams]=useSearchParams();
-  
-       
-  
+   
             let id=searchparams.get("id");
            
             const[initialValues,setInetials]=useState({
@@ -60,14 +58,14 @@ const UpdateTrainerTrainee=()=>{
           validationSchema:TraineeSignUp,
            onSubmit:(values)=>{
        
-            alert("data added")
+            alert(values.gender);
               
             axios.put('http://localhost:8080/updateTrainee',values)
             .then(response => {
                           if(response.data)
-                          navigate(`/traineedata?status=${response.data}`);
+                          navigate(`/trainertraineedata ? status=${response.data}`);
                           else
-                          navigate('/UpdateTrainee');
+                          navigate('/trainerupdatetrainee');
 
             })
             .catch(error => {  alert(error);  });
@@ -100,6 +98,7 @@ const UpdateTrainerTrainee=()=>{
         <div className='formValidationError'>
         {errors.username && touched.username ? (<p>{errors.username}</p>):null}
         </div>
+
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" placeholder="Enter your password" name="password" value={values.password}  onBlur={handleBlur} onChange={handleChange} disabled/>
@@ -108,7 +107,7 @@ const UpdateTrainerTrainee=()=>{
         <div className='formValidationError'>
         {errors.password && touched.password ? (<p>{errors.password}</p>):null}
         </div>
-  
+
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Re-Enter Password:</Form.Label>
         <Form.Control type="password" placeholder="Enter your password" name="confirm_password" value={values.confirm_password} onBlur={handleBlur} onChange={handleChange} disabled/>
@@ -117,6 +116,7 @@ const UpdateTrainerTrainee=()=>{
         <div className='formValidationError'>
         {errors.confirm_password && touched.confirm_password ? (<p>{errors.confirm_password}</p>):null}
         </div>
+
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Age:</Form.Label>
         <Form.Control type="number" placeholder="Enter your Age" name="age" value={values.age} onBlur={handleBlur} onChange={handleChange} />
@@ -153,6 +153,7 @@ const UpdateTrainerTrainee=()=>{
         <div className='formValidationError'>
         {errors.emailid && touched.emailid ? (<p>{errors.emailid}</p>):null}
         </div>
+
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Adhar-No:</Form.Label>
         <Form.Control type="number" placeholder="Enter your Adhar-No" name="adharno" value={values.adharno} onBlur={handleBlur} onChange={handleChange}/>
@@ -170,6 +171,7 @@ const UpdateTrainerTrainee=()=>{
         <div className='formValidationError'>
         {errors.joiningdate && touched.joiningdate ? (<p>{errors.joiningdate}</p>):null}
         </div>
+
         <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
         <Form.Label>Address:</Form.Label>
         <Form.Control type="text" placeholder="select your address" value={values.address} onBlur={handleBlur} onChange={handleChange} name="address" />
@@ -178,6 +180,7 @@ const UpdateTrainerTrainee=()=>{
         <div className='formValidationError'>
         {errors.address && touched.address ? (<p>{errors.address}</p>):null}
         </div>
+
         <Button variant="primary" type="submit">
         Update
       </Button>
@@ -190,4 +193,4 @@ const UpdateTrainerTrainee=()=>{
 
 };
 
-export default UpdateTrainerTrainee;
+export default TrainerUpdateTrainee;

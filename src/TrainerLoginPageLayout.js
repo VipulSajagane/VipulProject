@@ -29,11 +29,11 @@ function TrainerLoginPageLayout(){
           navbarScroll
         >
           {/* <Nav.Link className='margin' href="#action1"><Link to='/HomePage' className='routing'>Home</Link></Nav.Link> */}
-          <Nav.Link><Link to='/trainertraineedata' className='routing'> Trainee Info</Link></Nav.Link>
-          <Nav.Link><Link to='/trainerworkoutplan' className='routing'> Workout Plan</Link></Nav.Link>
-          <Nav.Link><Link to='/trainerworkoutplaninfo' className='routing navHeading'> Workout Plan Info</Link></Nav.Link>
-          <Nav.Link><Link to='/trainercaloriecounter' className='routing'> Calorie Counter</Link></Nav.Link>
-          <Nav.Link><Link to='/trainerbmicalculator' className='routing'>BMI Calculator</Link></Nav.Link>
+          <Nav.Link><Link to='/trainertraineedata' className='routing navHeading'> Trainee Info</Link></Nav.Link>
+          <Nav.Link><Link to='/trainerworkoutplan' className='routing navHeading'> Workout Plan info</Link></Nav.Link>
+          <Nav.Link><Link to='/workoutplan' className='routing navHeading'> Workout Plan </Link></Nav.Link>
+          <Nav.Link><Link to='/trainercaloriecounter' className='routing navHeading'> Calorie Counter</Link></Nav.Link>
+          <Nav.Link><Link to='/trainerbmicalculator' className='routing navHeading'>BMI Calculator</Link></Nav.Link>
           <Nav.Link onClick={Logout}>Logout</Nav.Link>
         </Nav>
         <Form className="d-flex">

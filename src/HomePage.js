@@ -45,10 +45,10 @@ function HomePage() {
          
           <NavDropdown title="Login/Register" id="navbarScrollingDropdown" className='navHeading'>
             <NavDropdown.Item>
-            <Link to="/owner" className='routing'>Owner</Link> </NavDropdown.Item>
-            <NavDropdown.Item > <Link to="/trainer" className='routing'>Trainer</Link></NavDropdown.Item>
+            <Link to="/owner" className='routing'>Login</Link> </NavDropdown.Item>
+            <NavDropdown.Item > <Link to="/trainer" className='routing'>Trainer Registration</Link></NavDropdown.Item>
             
-            <NavDropdown.Item> <Link to='/trainee' className='routing'>Trainee</Link></NavDropdown.Item>
+            <NavDropdown.Item> <Link to='/trainee' className='routing'>Trainee Registration</Link></NavDropdown.Item>
           </NavDropdown>
           <Nav.Link><Link to='/caloriecounter' className='routing navHeading'> Calorie Counter</Link></Nav.Link>
           <Nav.Link><Link to='/bmicalculator' className='routing navHeading'>BMI Calculator</Link></Nav.Link>

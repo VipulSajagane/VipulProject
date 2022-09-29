@@ -4,7 +4,7 @@ import { MDBRadio } from 'mdb-react-ui-kit';
 import { TrainerSignUp } from './schemas/TrainerValidation';
 import { useFormik } from "formik";
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom';
 const initialValues={
   name:"",
   username:"",
@@ -20,6 +20,7 @@ const initialValues={
 };
 const TrainerForm=()=>
 {
+  let navigate =useNavigate();
   const{values,errors,touched,handleBlur,handleSubmit,handleChange}=useFormik({
     initialValues,validationSchema:TrainerSignUp,
     onSubmit:(values)=>{
@@ -29,7 +30,10 @@ const TrainerForm=()=>
 
       axios.post('http://localhost:8080/addtrainer',values)
       .then(response =>{
-        alert(response.data);
+        if(response.data)
+                          navigate(`/owner?status=${response.data}`);
+                          else
+                          navigate('/trainer');
       })
       .catch(error =>{
         alert(error);

@@ -17,9 +17,9 @@ const TrainerProfile=()=>{
      
       setResponseData(response.data);
       // alert(responseData.name)
-      alert(JSON.stringify(responseData));
+      alert("data added")
  
-      console.log(responseData);
+     
    
   }).catch((error)=>{
       alert(error);

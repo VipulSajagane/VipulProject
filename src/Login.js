@@ -14,6 +14,17 @@ const Login=()=>{
       const newuser = { ...user, [e.target.name]: e.target.value };
       setUser(newuser);
     };
+
+    let [isUserRegistered,setIsUserRegistered]=useState(false);
+
+   let [searchparam]=useSearchParams();
+    let registerStatus=searchparam.get("status");
+      
+    if(registerStatus){
+      
+      setTimeout(() => setIsUserRegistered(true), 2500);
+
+    }
   
     const processLogin = async (e) => {
       try {
@@ -110,14 +121,14 @@ return(
             Invalid Credentials ..Try Again!
           </div>
         )}
+         {!(isUserRegistered) && (
+          <div className="alert alert-success">
+            You Are Succesfully Registred...!
+          </div>
+        )}
 
 
     </form>    
-
-       
-    <Link to="/ownerpage">Owner Page Layout</Link>
-    <Link to="/trainerpage">Trainer Page Layout</Link>
-    <Link to="/traineeePage">Trainee Page Layout</Link>
     </div>
     );
 

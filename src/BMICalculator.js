@@ -1,75 +1,85 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Component } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import { useFormik } from 'formik';
+import { calorie } from './schemas/calorieCalValidation';
 import  { useState } from "react";
-import React from 'react';
-// import Item from './Item';
-import {bmival} from './schemas/BMICalValidation';
 
 const initialValues={
-   age:"",
-   height:"",
-   weight:""
- };
-
-const backgroundPicture = new URL("./Images/background1.jpg",import.meta.url)
-const BMICalculator = () => {
-  const [age, setAge] = useState(0);
-  const [height, setHeight] = useState(0);
-  const [weight, setWeight] = useState(0); 
-  const [bmi, setBmi] = useState(0);
-  const calculate = (e) => {
-    
-    
-    e.preventDefault();
-    const formValid = height > 0 && weight > 0;
-    if (!formValid) {
-      return;
-    }
-    const bmi = weight / ((height/100)*(height/100));
-    setBmi(bmi);
+     age:"",
+    height:"",
+    weight:"",
+    activity:"",
+    calories:"",
   };
-  
-    return (
-        <> 
-        <div className='backgroundColor'>
-            <form className='moduleContents formsBackground bMICalculator backgroundImages'onSubmit={calculate} >
-            <h2 className='bMICalculatorHeading'>BMI Calculator</h2>
-            {/* <hr />   */}
-                <Form.Group className=" mb-3" controlId="formBasicPassword">
-                    <Form.Label>Age </Form.Label>
-                    <Form.Control type="number"name= "age" placeholder="Enter Your Age" onChange={e => setAge(e.target.value)}/>
 
-                    <Form.Text className="text-muted">
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group className=" mb-3" controlId="formBasicPassword">
-                    <Form.Label>Height</Form.Label>
-                    <Form.Control type="number"name="height" placeholder="Enter your height" onChange={e => setHeight(e.target.value)}/>
 
-                    <Form.Text className="text-muted">
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group className=" mb-3" controlId="formBasicPassword">
-                    <Form.Label>Weight</Form.Label>
-                    <Form.Control type="number"name="weight" placeholder="Enter your Weight" onChange={e => setWeight(e.target.value)}/>
-                    <Form.Text className="text-muted">
-                    </Form.Text>
-
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                   calculate
-                </Button>
-
-                <button className='btn btn-success bMIbutton' ><centre>Your BMI: {bmi}</centre></button>
-            </form>
+const BMICalculator=()=>{
+        
     
-            
+
+    const{values,errors,touched,handleBlur,handleSubmit,handleChange}=useFormik({
+        initialValues,validationSchema:calorie,
+        onSubmit:(values)=>{
+          console.log(values.age);
+          console.log("in submit");
+
+           values.calories = ((10.0 * values.weight)+(6.25 * values.height)-(5.0 * values.age))+5;
+   
+
+        }
+    
+      })
+ 
+
+    return (
+        <>
+        <div className='backgroundColor'>
+            <form className='moduleContents formsBackground calorieCounter backgroundImages' onSubmit={handleSubmit}>
+            <h2 className='calorieCounterHeading'>BMI Calculator</h2>
+            <hr />
+                <Form.Group className="CalorieCounter " controlId="formBasicPassword">
+                    <Form.Label>Age</Form.Label>
+                    <Form.Control type="number" name="age" value={values.age} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter Your Age" />
+                    <Form.Text className="text-muted">
+                    </Form.Text>
+                </Form.Group>
+                <div className='formValidationError'>
+                {errors.age && touched.age ?(<p>{errors.age}</p>):null}
+                </div>
+
+                <Form.Group className="CalorieCounter " controlId="formBasicPassword">
+                    <Form.Label>Height</Form.Label>
+                    <Form.Control type="number" name="height" value={values.height} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter your height" />
+                    <Form.Text className="text-muted">
+                    </Form.Text>
+                </Form.Group>
+                <div className='formValidationError'>
+                {errors.height && touched.height ?(<p>{errors.height}</p>):null}
+                </div>
+
+                <Form.Group className="CalorieCounter " controlId="formBasicPassword">
+                    <Form.Label>Weight</Form.Label>
+                    <Form.Control type="number" name="weight" value={values.weight} onBlur={handleBlur}  onChange={handleChange} placeholder="Enter your Weight" />
+                    <Form.Text className="text-muted">
+                    </Form.Text>
+                </Form.Group>
+                <div className='formValidationError'>
+                {errors.weight && touched.weight ?(<p>{errors.weight}</p>):null}
+                </div>
+
+              
+              
+
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+                <button className='btn btn-success calorieButton' ><centre>Your calories: {values.calories}</centre></button>
+            </form>
             </div>
         </>
     );
 }
 
-
-
-export default BMICalculator;
+export default BMICalculator

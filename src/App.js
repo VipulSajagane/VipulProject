@@ -30,6 +30,9 @@ import TraineeeLoginPageLayout from './TraineeeLoginPageLayout.js';
 import  Sir from './Images/Sir.jpeg'
 import Aboutus from './AboutUs';
 import UpdateWorkoutPlan from './UpdateWorkoutPlan';
+import WorkoutData from './WorkoutData';
+import TraineeDataInTrainer from './TraineeDataInTrainer';
+import TrainerUpdateTrainee from './TrainerUpdateTrainee';
 
 
 
@@ -73,18 +76,20 @@ function BasicExample() {
   <Route>
   {/* <Route path='HomePage' element={<><HomePage/></>}></Route>  */}
   <Route path='trainerpage' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TrainerProfile/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainertraineedata/' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TraineeData/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainertraineedata/updatetrainee' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><UpdateTrainee/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainerworkoutplan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutPlan/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainerworkoutplaninfo' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><UpdateWorkoutPlan/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainertraineedata/' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TraineeDataInTrainer/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainertraineedata/trainerupdatetrainee' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TrainerUpdateTrainee/></ProtectedRouteTrainer>}></Route>
+  <Route path='workoutdata' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutData/></ProtectedRouteTrainer>}></Route>
+  <Route path='workoutplan/' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutPlan/></ProtectedRouteTrainer>}></Route>
+  <Route path='workoutdata/updateWorkoutPlan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><UpdateWorkoutPlan/></ProtectedRouteTrainer>}></Route>
   <Route path='trainerbmicalculator' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><BMICalculator/></ProtectedRouteTrainer>}></Route>
   <Route path='trainercaloriecounter' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><CalorieCounter/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainerworkoutplan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutData/></ProtectedRouteTrainer>}></Route>
   </Route>
 
   <Route>
   <Route path='traineeePage' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><TraineeProfile/></ProtectedRouteTrainee>}></Route>
   <Route path='traineeworkoutplan' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><WorkoutPlan/></ProtectedRouteTrainee>}></Route>
-  <Route path='traineehealthdetails' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><HealthDetails/></ProtectedRouteTrainee>}></Route>
+  <Route path='traineehealthdetails/' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><HealthDetails/></ProtectedRouteTrainee>}></Route>
   <Route path='traineedietplan' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><DietPlan/></ProtectedRouteTrainee>}></Route>
   <Route path='traineebmicalculator' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><BMICalculator/></ProtectedRouteTrainee>}></Route>
   <Route path='traineecaloriecounter' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><CalorieCounter/></ProtectedRouteTrainee>}></Route>

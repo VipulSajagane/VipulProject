@@ -2,7 +2,7 @@ import { isContentEditable } from '@testing-library/user-event/dist/utils';
 import axios from 'axios';
 import {  useState,useEffect } from "react";
 import {Link, useNavigate,useSearchParams} from 'react-router-dom';
-const WorkoutData=()=>{
+const TraineeDataInTrainer=()=>{
     
     let[searchparams]=useSearchParams();
     let status=searchparams.get("status");
@@ -10,34 +10,36 @@ const WorkoutData=()=>{
     const [responseData, setResponseData] = useState([]);
     
    useEffect(()=>{
-    axios.get('http://localhost:8080/getAllWorkoutPlan').then((response)=>{
+    axios.get('http://localhost:8080/getAllTrainee').then((response)=>{
        
         setResponseData(response.data);
-        alert(responseData);
+     
     }).catch((error)=>{
         alert(error);
             })
    },[]);
 
+ 
+
    const updateCilck=(val)=>{
         //alert("In updateCilck");  
         //alert(val.id);  
         let id=val.id;
-        navigate(`UpdateWorkoutPlan?id=${id}`);      
+        navigate(`trainertraineedata/trainerupdatetrainee ?id=${id}`);      
    } 
             return(
                 <>
                  { status ? <p>Data Succesfully Updated</p>:null}
                 <div class="container mt-5">
-                <h2>Workout Information</h2>
+                <h2>Trainee Information</h2>
                           
                 <table class="table table-striped">
                 <thead>
                  <tr>
-                 <th>Workout ID</th>
-                  <th> Day</th>
-                  <th>Workout</th>
-                  <th>Workout Details</th>
+                 <th>Trainee ID</th>
+                  <th> Name</th>
+                  <th>Age</th>
+                  <th>Phone No.</th>
                   <th>Update</th>
                  
                  </tr>
@@ -47,11 +49,11 @@ const WorkoutData=()=>{
                   responseData.map(
                    (val) => <tr key="{val.id}"  >
                     <td>{val.id}</td>
-                    <td>{val.day}</td>
-                    <td>{val.workout}</td>
-                    <td>{val.workoutDetails}</td> 
+                    <td>{val.name}</td>
+                    <td>{val.age}</td>
+                    <td>{val.phoneno}</td>
                     <td><p class="btn btn-primary" onClick={()=>{updateCilck(val)}}>Update</p></td>
-                    
+                   
                    </tr>
                   )
                  }
@@ -62,4 +64,4 @@ const WorkoutData=()=>{
             );
 }
 
-export default WorkoutData;
+export default TraineeDataInTrainer;
