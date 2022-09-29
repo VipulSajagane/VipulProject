@@ -17,7 +17,7 @@ function TraineeeLoginPageLayout(){
     <>
     <Navbar className= 'navbar active' bg="light" expand="lg">
     <Container fluid>
-      <Navbar.Brand href="" className='heading'>Trainee</Navbar.Brand>
+      <Navbar.Brand href="" className='heading allFormHeadings traineeloginpagelayoutheading'>Trainee dashboard</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -28,11 +28,11 @@ function TraineeeLoginPageLayout(){
           {/* <Nav.Link className='margin' href="#action1"><Link to='/HomePage' className='routing'>Home</Link></Nav.Link> */}
           {/* <Nav.Link><Link to='/traineehealthdetails' className='routing'> Health Details</Link></Nav.Link> */}
           <Nav.Link><Link to='/traineeworkoutplan' className='routing navHeading'> Workout Plan</Link></Nav.Link>
-          <Nav.Link><Link to='/traineedietplan' className='routing navHeading'> Diet Plan</Link></Nav.Link>
+          {/* <Nav.Link><Link to='/traineedietplan' className='routing navHeading'> Diet Plan</Link></Nav.Link> */}
           <Nav.Link><Link to='/healthdetails' className='routing navHeading'> Health Details </Link></Nav.Link>
           <Nav.Link><Link to='/traineecaloriecounter' className='routing navHeading'> Calorie Counter</Link></Nav.Link>
           <Nav.Link><Link to='/traineebmicalculator' className='routing navHeading'>BMI Calculator</Link></Nav.Link>
-          <Nav.Link onClick={Logout}>Logout</Nav.Link>
+          <Nav.Link onClick={Logout} className='navHeading'>Logout</Nav.Link>
         </Nav>
         <Form className="d-flex">
           <Form.Control
@@ -41,7 +41,7 @@ function TraineeeLoginPageLayout(){
             className="me-2"
             aria-label="Search"
           />
-          <Button variant="outline-success">Search</Button>
+          <Button variant="outline-primary" className='searchButton'>Search</Button>
         </Form>
       </Navbar.Collapse>
     </Container>

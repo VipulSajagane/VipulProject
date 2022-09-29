@@ -44,7 +44,7 @@ const TrainerForm=()=>
     return<>
     <div className='backgroundColor'>
     <form action="" className='moduleContents formsBackground trainerForm backgroundImages' onSubmit={handleSubmit}>
-    <h1 className='moduleHeadings trainerHeading'>Trainer Form</h1>
+    <h1 className='moduleHeadings trainerHeading allFormHeadings'>Trainer Form</h1>
     
         <Form.Group controlId="formBasicPassword">
         <Form.Label>Name:</Form.Label>
@@ -52,7 +52,7 @@ const TrainerForm=()=>
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.name && touched.name ?(<p>{errors.name}</p>):null}
 
         </div>
@@ -62,7 +62,7 @@ const TrainerForm=()=>
         <Form.Control type="text" name="username"  value={values.username} onBlur={handleBlur}  onChange={handleChange}placeholder="Enter your Name"/>
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.username && touched.username ?(<p>{errors.username}</p>):null}
         </div>
 
@@ -72,7 +72,7 @@ const TrainerForm=()=>
         <Form.Control type="password" placeholder="Enter your password" name="password" value={values.password} onBlur={handleBlur}  onChange={handleChange} />
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.password && touched.password ?(<p>{errors.password}</p>):null}
         </div>
 
@@ -82,7 +82,7 @@ const TrainerForm=()=>
         <Form.Control type="password" placeholder="Re-Enter your password" name="confirm_password" value={values.confirm_password} onBlur={handleBlur}  onChange={handleChange}  />
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.confirm_password && touched.confirm_password ?(<p>{errors.confirm_password}</p>):null}
         </div>
 
@@ -92,7 +92,7 @@ const TrainerForm=()=>
         <Form.Control type="number" placeholder="Enter your Age" name="age" value={values.age} onBlur={handleBlur}  onChange={handleChange} />
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.age && touched.age ?(<p>{errors.age}</p>):null}
         </div>
    
@@ -103,7 +103,7 @@ const TrainerForm=()=>
       <MDBRadio name='gender' id='female' label='Female'  value="female" onBlur={handleBlur} onChange={handleChange}/>
       <MDBRadio name='gender' id='other' label='Other'  value="other" onBlur={handleBlur} onChange={handleChange}/>
       </Form.Group>
-      <div className='validationErrors'>
+      <div className='formValidationError'>
       {errors.gender && touched.gendere ?(<p>{errors.gender}</p>):null}
       </div>
 
@@ -113,7 +113,7 @@ const TrainerForm=()=>
         <Form.Control type="number" placeholder="Enter your PhoneNo" name="phoneno" value={values.phoneno} onBlur={handleBlur} onChange={handleChange}/>
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.phoneno && touched.phoneno ?(<p>{errors.phoneno}</p>):null}
         </div>
 
@@ -122,7 +122,7 @@ const TrainerForm=()=>
         <Form.Control type="email" placeholder="Enter your Email-Id" name="email" value={values.email} onBlur={handleBlur} onChange={handleChange}/>
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.email && touched.email ?(<p>{errors.email}</p>):null}
         </div>
 
@@ -131,7 +131,7 @@ const TrainerForm=()=>
         <Form.Control type="number" placeholder="Enter your Adhar-No" name="adharno"value={values.adharno} onBlur={handleBlur} onChange={handleChange}/>
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group> 
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.adharno && touched.adharno ?(<p>{errors.adharno}</p>):null}
         </div>
 
@@ -140,7 +140,7 @@ const TrainerForm=()=>
         <Form.Control type="date" placeholder="select your joining date" name="joiningdate" value={values.joiningdate} onBlur={handleBlur} onChange={handleChange}/>
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group>  
-        <div className='validationErrors'>
+        <div className='formValidationError'>
         {errors.joiningdate && touched.joiningdate ?(<p>{errors.joiningdate}</p>):null}
         </div>
 
@@ -149,7 +149,7 @@ const TrainerForm=()=>
         <Form.Control type="text" placeholder="select your address" name="address" value={values.address} onBlur={handleBlur} onChange={handleChange}/>
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group> 
-        <div className='validationErrors'>
+        <div className='formValidationError mb-3'>
         {errors.address && touched.address ?(<p>{errors.address}</p>):null}
         </div>
 

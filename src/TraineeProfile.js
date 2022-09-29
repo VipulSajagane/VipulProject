@@ -50,7 +50,7 @@ return (
     
      <section style={{ backgroundColor: '#eee' }}>
      <div className='traineeProfile'>
-     <h1 className='traineeProfileHeading'>Trainee Profile</h1>
+     <h1 className='traineeProfileHeading allFormHeadings'>Trainee Profile</h1>
       <MDBContainer className="">
         <MDBRow className='traineeProfileFirstContainer'>
           <MDBCol lg="4">

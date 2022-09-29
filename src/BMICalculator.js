@@ -39,7 +39,7 @@ const BMICalculator=()=>{
         <>
         <div className='backgroundColor'>
             <form className='moduleContents formsBackground calorieCounter backgroundImages' onSubmit={handleSubmit}>
-            <h2 className='calorieCounterHeading'>BMI Calculator</h2>
+            <h2 className='calorieCounterHeading allFormHeadings'>BMI Calculator</h2>
             <hr />
                 <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Age</Form.Label>
@@ -67,17 +67,17 @@ const BMICalculator=()=>{
                     <Form.Text className="text-muted">
                     </Form.Text>
                 </Form.Group>
-                <div className='formValidationError'>
+                <div className='formValidationError mb-3'>
                 {errors.weight && touched.weight ?(<p>{errors.weight}</p>):null}
                 </div>
         
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                
+                <button className='btn btn-success calorieButton' ><centre>Your calories: {bmi}</centre></button>
             </form>
             </div>
-            <button className='btn btn-success calorieButton' ><centre>Your calories: {bmi}</centre></button>
+            
         </>
     );
 }

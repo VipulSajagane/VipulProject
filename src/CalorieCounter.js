@@ -38,7 +38,7 @@ const CalorieCounter=()=>{
         <>
         <div className='backgroundColor'>
             <form className='moduleContents formsBackground calorieCounter backgroundImages' onSubmit={handleSubmit}>
-            <h2 className='calorieCounterHeading'>Calorie Counter</h2>
+            <h2 className='calorieCounterHeading allFormHeadings'>Calorie Counter</h2>
             <hr />
                 <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Age</Form.Label>
@@ -70,7 +70,7 @@ const CalorieCounter=()=>{
                 {errors.weight && touched.weight ?(<p>{errors.weight}</p>):null}
                 </div>
 
-                <Form.Group className="CalorieCounter " controlId="formBasicPassword">
+                {/* <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Activity</Form.Label>
                     
                     <Form.Select aria-label="Default select example" name="activity" value={values.activity} onBlur={handleBlur}  onChange={handleChange}>
@@ -83,7 +83,7 @@ const CalorieCounter=()=>{
                         <option value="6">Extra Active: very intense exercise daily, or physical jobe</option>
 
                     </Form.Select>
-                </Form.Group>
+                </Form.Group> */}
                 <div className='formValidationError mb-3'>
                 {errors.activity && touched.activity ?(<p>{errors.activity}</p>):null}
                 </div>
@@ -91,9 +91,10 @@ const CalorieCounter=()=>{
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
+                <button className='btn btn-success calorieButton' ><centre>Your calories: {calories}</centre></button>
            
             </form>
-            <button className='btn btn-success calorieButton' ><centre>Your calories: {calories}</centre></button>
+           
             </div>
         </>
     );

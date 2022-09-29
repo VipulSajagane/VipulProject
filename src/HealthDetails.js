@@ -43,7 +43,7 @@ const HealthDetails = ()=>
         <div className='backgroundColor'>
         
         <Form  action="" onSubmit={handleSubmit}    className='moduleContents formsBackground workoutPlan backgroundImages'> 
-        <h1 className='moduleHeadings workoutPlanHeading'>HealthDetails</h1>
+        <h1 className='moduleHeadings healthdetailsformheading allFormHeadings'>HealthDetails</h1>
         <hr/>
           <Form.Group className="" controlId="formBasicEmail"  >
             <Form.Label>Height</Form.Label>

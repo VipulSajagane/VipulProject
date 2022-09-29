@@ -20,7 +20,7 @@ function TrainerLoginPageLayout(){
     <>
     <Navbar className= 'navbar active' bg="light" expand="lg">
     <Container fluid>
-      <Navbar.Brand href="" className='heading'>Trainer Page</Navbar.Brand>
+      <Navbar.Brand href="" className='heading trainerDashboard'>Trainer Dashboard</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -34,7 +34,7 @@ function TrainerLoginPageLayout(){
           <Nav.Link><Link to='/workoutplan' className='routing navHeading'> Workout Plan </Link></Nav.Link>
           <Nav.Link><Link to='/trainercaloriecounter' className='routing navHeading'> Calorie Counter</Link></Nav.Link>
           <Nav.Link><Link to='/trainerbmicalculator' className='routing navHeading'>BMI Calculator</Link></Nav.Link>
-          <Nav.Link onClick={Logout}>Logout</Nav.Link>
+          <Nav.Link onClick={Logout} className='navHeading'>Logout</Nav.Link>
         </Nav>
         <Form className="d-flex">
           <Form.Control
@@ -43,7 +43,7 @@ function TrainerLoginPageLayout(){
             className="me-2"
             aria-label="Search"
           />
-          <Button variant="outline-success">Search</Button>
+          <Button variant="outline-primary" className='searchButton'>Search</Button>
         </Form>
       </Navbar.Collapse>
     </Container>

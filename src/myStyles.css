@@ -81,7 +81,7 @@
 }
 
 .traineeHeading{
-    margin-left: 20%;
+    margin-left: 26%;
 }
 
 .trainerForm{
@@ -90,15 +90,16 @@
 }
 
 .trainerHeading{
-    margin-left: 20%;
+    margin-left: 26%;
 }
 
 .workoutPlanHeading{
-    margin-left: 20%;
+    margin-left: 30%;
+
 }
 
 .workoutPlan{
-    margin-top: 85px;
+    margin-top: 80px;
     margin-left: 27%;
 }
 
@@ -121,7 +122,7 @@
 }
 
 .calorieCounterHeading{
-    margin-left: 28%;
+    margin-left: 26%;
 }
 
 .calorieCounter{ 
@@ -461,3 +462,26 @@ margin-bottom: 0;
   margin-bottom: 60px;
 }
 
+.footer{
+    font-weight:bold;
+  }
+
+.allFormHeadings{
+   font-family: fantasy;
+   font-size: 35px;
+}
+
+.traineeloginpagelayoutheading{
+    font-weight: 400;
+    font-size: 33px;
+}
+
+.healthdetailsformheading{
+    margin-left: 30%;
+}
+
+.trainerDashboard{
+    font-family: fantasy;
+   font-size: 35px;
+   font-weight: 500;
+}

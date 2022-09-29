@@ -27,7 +27,7 @@ function OwnerLoginPageLayout() {
    {/* <Navbar className={navbar ? 'navbar active':'navbar'} bg="light" expand="lg"> */}
    <Navbar className= 'navbar active' bg="light" expand="lg">
     <Container fluid>
-      <Navbar.Brand href="" className='heading'>Owner Page</Navbar.Brand>
+      <Navbar.Brand href="" className='allFormHeadings'>Owner Dashboard</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -35,12 +35,12 @@ function OwnerLoginPageLayout() {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link className='margin' href="#action1"><Link to='/ownerprofile' className='routing'>Home</Link></Nav.Link>
-          <Nav.Link><Link to='/traineedata' className='routing'> Trainee Info</Link></Nav.Link>
-          <Nav.Link><Link to='/trainerdata' className='routing'> Trainer Info</Link></Nav.Link>
-          <Nav.Link><Link to='/ownercaloriecounter' className='routing'> Calorie Counter</Link></Nav.Link>
-          <Nav.Link><Link to='/ownerbmicalculator' className='routing'>BMI Calculator</Link></Nav.Link>
-          <Nav.Link onClick={Logout}>Logout</Nav.Link>
+          <Nav.Link className='margin' href="#action1"><Link to='/ownerprofile' className='routing navHeading'>Home</Link></Nav.Link>
+          <Nav.Link><Link to='/traineedata' className='routing navHeading'> Trainee Info</Link></Nav.Link>
+          <Nav.Link><Link to='/trainerdata' className='routing navHeading'> Trainer Info</Link></Nav.Link>
+          <Nav.Link><Link to='/ownercaloriecounter' className='routing navHeading'> Calorie Counter</Link></Nav.Link>
+          <Nav.Link><Link to='/ownerbmicalculator' className='routing navHeading'>BMI Calculator</Link></Nav.Link>
+          <Nav.Link onClick={Logout} className='navHeading'>Logout</Nav.Link>
         </Nav>
         <Form className="d-flex">
           <Form.Control
@@ -49,7 +49,7 @@ function OwnerLoginPageLayout() {
             className="me-2"
             aria-label="Search"
           />
-          <Button variant="outline-success">Search</Button>
+          <Button variant="outline-primary" className='searchButton'>Search</Button>
         </Form>
       </Navbar.Collapse>
     </Container>
