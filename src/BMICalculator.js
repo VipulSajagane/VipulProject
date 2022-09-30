@@ -5,7 +5,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useFormik } from 'formik';
 import { BMIcal } from './schemas/BMICalValidation';
 import  { useState } from "react";
-
+import BMI from './Images/BMI.png'
 const initialValues={
      age:"",
     height:"",
@@ -78,7 +78,9 @@ const BMICalculator=()=>{
                 </Button>
                 <button className='btn btn-success calorieButton' ><centre>Your BMI: {bmi} kg/m^2</centre></button>
             </form>
+            
             </div>
+            <div className='calorieFormBackground'><img className='caloriesImage ' src={BMI}></img> </div>
             
         </>
     );

@@ -63,7 +63,7 @@ const UpdateTrainer=()=>{
           validationSchema:TrainerSignUp,
            onSubmit:(values)=>{
        
-            alert("data added")
+           
               
             axios.put('http://localhost:8080/updateTrainer',values)
             .then(response => {
@@ -84,9 +84,9 @@ const UpdateTrainer=()=>{
     return(<>
     <div className='backgroundColor'>
     <form action="" onSubmit={handleSubmit} className='moduleContents formsBackground traineeForm backgroundImages'>
-        <h1 className='moduleHeadings traineeHeading'>Update Trainer Information</h1>
+        <h1 className='moduleHeadings traineeHeading allFormHeadings'>Update Trainer Information</h1>
         <hr/>
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Name:</Form.Label>
         <Form.Control type="text"   name="name"  value={values.name} onBlur={handleBlur} onChange={handleChange}  placeholder="Enter your Name" />
         <Form.Text className="text-muted"></Form.Text>
@@ -95,7 +95,7 @@ const UpdateTrainer=()=>{
          {errors.name && touched.name ? (<p>{errors.name}</p>):null}
          </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" defaultValue="My default value" name="username" value={values.username} onBlur={handleBlur} onChange={handleChange}  placeholder="Enter your Name"/>
         <Form.Text className="text-muted"></Form.Text>
@@ -104,7 +104,7 @@ const UpdateTrainer=()=>{
         {errors.username && touched.username ? (<p>{errors.username}</p>):null}
         </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" placeholder="Enter your password" name="password" value={values.password}  onBlur={handleBlur} onChange={handleChange} disabled/>
         <Form.Text className="text-muted"></Form.Text>
@@ -113,7 +113,7 @@ const UpdateTrainer=()=>{
         {errors.password && touched.password ? (<p>{errors.password}</p>):null}
         </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Re-Enter Password:</Form.Label>
         <Form.Control type="password" placeholder="Enter your password" name="confirm_password" value={values.confirm_password} onBlur={handleBlur} onChange={handleChange} disabled/>
         <Form.Text className="text-muted"></Form.Text>
@@ -122,7 +122,7 @@ const UpdateTrainer=()=>{
         {errors.confirm_password && touched.confirm_password ? (<p>{errors.confirm_password}</p>):null}
         </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Age:</Form.Label>
         <Form.Control type="number" placeholder="Enter your Age" name="age" value={values.age} onBlur={handleBlur} onChange={handleChange} />
         <Form.Text className="text-muted"></Form.Text>
@@ -131,7 +131,7 @@ const UpdateTrainer=()=>{
         {errors.age && touched.age ? (<p>{errors.age}</p>):null}
         </div>
        
-      <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+      <Form.Group className="TrainerForm " controlId="formBasicPassword">
       <Form.Label>Gender:</Form.Label>
       <MDBRadio name='gender' id='male' label='Male'  value="male" onBlur={handleBlur} onChange={handleChange}  />
       <MDBRadio name='gender' id='female' label='Female'  value="female" onBlur={handleBlur} onChange={handleChange} />
@@ -141,7 +141,7 @@ const UpdateTrainer=()=>{
       {errors.gender && touched.gender ? (<p>{errors.gender}</p>):null}
       </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>PhoneNo:</Form.Label>
         <Form.Control type="number" placeholder="Enter your PhoneNo" name="phoneno"  value={values.phoneno} onBlur={handleBlur} onChange={handleChange}/>
         <Form.Text className="text-muted"></Form.Text>
@@ -150,7 +150,7 @@ const UpdateTrainer=()=>{
         {errors.phoneno && touched.phoneno ? (<p>{errors.phoneno}</p>):null}
         </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Email-Id:</Form.Label>
         <Form.Control type="email" placeholder="Enter your Email-Id" name="email"  value={values.email} onBlur={handleBlur} onChange={handleChange} />
         <Form.Text className="text-muted"></Form.Text>
@@ -159,7 +159,7 @@ const UpdateTrainer=()=>{
         {errors.email && touched.email ? (<p>{errors.email}</p>):null}
         </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Adhar-No:</Form.Label>
         <Form.Control type="number" placeholder="Enter your Adhar-No" name="adharno" value={values.adharno} onBlur={handleBlur} onChange={handleChange}/>
         <Form.Text className="text-muted"></Form.Text>
@@ -168,7 +168,7 @@ const UpdateTrainer=()=>{
         {errors.adharno && touched.adharno ? (<p>{errors.adharno}</p>):null}
         </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>JoiningDate:</Form.Label>
         <Form.Control type="date" placeholder="select your joining date"  value={values.joiningdate} onBlur={handleBlur} onChange={handleChange} name="joiningdate"/>
         <Form.Text className="text-muted"></Form.Text>
@@ -177,12 +177,12 @@ const UpdateTrainer=()=>{
         {errors.joiningdate && touched.joiningdate ? (<p>{errors.joiningdate}</p>):null}
         </div>
 
-        <Form.Group className="TrainerForm mb-3" controlId="formBasicPassword">
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Address:</Form.Label>
         <Form.Control type="text" placeholder="select your address" value={values.address} onBlur={handleBlur} onChange={handleChange} name="address" />
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group> 
-        <div className='formValidationError'>
+        <div className='formValidationError mb-3'>
         {errors.address && touched.address ? (<p>{errors.address}</p>):null}
         </div>
 

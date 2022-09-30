@@ -21,7 +21,7 @@ function PaymentDetails() {
     onSubmit:(values)=>{
       console.log(values.name);
       console.log("in submit");
-      alert(values.name);
+     
     }
 
   });

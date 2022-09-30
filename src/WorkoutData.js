@@ -13,7 +13,7 @@ const WorkoutData=()=>{
     axios.get('http://localhost:8080/getAllWorkoutPlan').then((response)=>{
        
         setResponseData(response.data);
-        alert(responseData);
+        
     }).catch((error)=>{
         alert(error);
             })

@@ -60,7 +60,7 @@ const UpdateTrainerTrainee=()=>{
           validationSchema:TraineeSignUp,
            onSubmit:(values)=>{
        
-            alert("data added")
+         
               
             axios.put('http://localhost:8080/updateTrainee',values)
             .then(response => {

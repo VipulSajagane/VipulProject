@@ -42,7 +42,7 @@ function OwnerLoginPageLayout() {
           <Nav.Link><Link to='/trainerdata' className='routing navHeading'> Trainer Info</Link></Nav.Link>
           <Nav.Link><Link to='/ownercaloriecounter' className='routing navHeading'> Calorie Counter</Link></Nav.Link>
           <Nav.Link><Link to='/ownerbmicalculator' className='routing navHeading'>BMI Calculator</Link></Nav.Link>
-          <Nav.Link onClick={Logout} className='navHeading'>Logout</Nav.Link>
+          <Nav.Link onClick={Logout} className='navHeading logoutNavOwner'>Logout</Nav.Link>
         </Nav>
         <Form className="d-flex">
           <Form.Control

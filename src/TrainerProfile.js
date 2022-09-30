@@ -19,7 +19,7 @@ const TrainerProfile=()=>{
      
       setResponseData(response.data);
       // alert(responseData.name)
-      alert("data added")
+     
  
      
    

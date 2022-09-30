@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 export const TraineeSignUp=Yup.object({
-    token:Yup.number().oneOf([12345,null], "Please enter valid Token number"),
+    token:Yup.number().required("*Please enter Token number").oneOf([12345,null], "*Please enter valid Token number"),
     name:Yup.string().min(4).max(21).required("*Please enter your name"),
     username:Yup.string().min(4).max(12).required("*Please enter your username"),
     password:Yup.string().min(4).max(12).required("*Please enter your password"),

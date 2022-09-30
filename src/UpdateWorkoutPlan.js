@@ -69,7 +69,7 @@ const UpdateWorkoutPlan = () => {
     <div className='backgroundColor'>
     
     <Form  action="" onSubmit={handleSubmit}    className='moduleContents formsBackground workoutPlan backgroundImages'> 
-    <h1 className='moduleHeadings workoutPlanHeading'>Update Workout Plan</h1>
+    <h1 className='moduleHeadings workoutPlanHeading allFormHeadings'>Update Workout Plan</h1>
     <hr/>
       <Form.Group className="mb-3" controlId="formBasicEmail"  >
         <Form.Label>Day1(Monday)</Form.Label>

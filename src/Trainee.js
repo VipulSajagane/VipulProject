@@ -28,7 +28,7 @@ const Trainee=()=>{
           validationSchema:TraineeSignUp,
           onSubmit:(values)=>{
             
-            alert("data added")
+          
             
               
             axios.post('http://localhost:8080/addTrainee',values)
@@ -47,7 +47,7 @@ const Trainee=()=>{
     return<>
     <div className='backgroundColor'>
     <form action="" onSubmit={handleSubmit}className='moduleContents formsBackground traineeForm backgroundImages'>
-        <h1 className='moduleHeadings traineeHeading'>TraineeForm</h1>
+        <h1 className='moduleHeadings traineeHeading allFormHeadings'>TraineeForm</h1>
         <hr/>
         <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Token No.:</Form.Label>

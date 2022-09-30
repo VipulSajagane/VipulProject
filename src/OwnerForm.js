@@ -17,7 +17,7 @@ const OwnerForm=()=>{
 
     const handleSubmit=(event)=>{
         event.preventDefault();
-        alert(JSON.stringify(inputs));
+      
     };
 
 

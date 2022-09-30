@@ -1,4 +1,4 @@
-// Vipuls project
+// Vaibhavs Project
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -33,7 +33,7 @@ import UpdateWorkoutPlan from './UpdateWorkoutPlan';
 import WorkoutData from './WorkoutData';
 import TraineeDataInTrainer from './TraineeDataInTrainer';
 import TrainerUpdateTrainee from './TrainerUpdateTrainee';
-
+import GymFooter from './GymFooter';
 
 
 
@@ -43,48 +43,48 @@ function BasicExample() {
   <div>
   <BrowserRouter>
     <Routes>
-            <Route path='/' element={<><HomePage/><HomeSubComponent/></>}>  </Route>
-            <Route path='/home' element={<><HomePage/><HomeSubComponent/></>}></Route>
-            <Route path='aboutus' element={<><HomePage/><Aboutus/></>}> </Route>
-            <Route path='/trainee' element={<><HomePage/><Trainee/></>}> </Route>
-             <Route path='/trainer' element={<><HomePage/><TrainerForm/></>}></Route>
-                <Route path='login' element={<><HomePage/><Login/></>}></Route>
-                <Route path='/owner' element={<><HomePage/><Login/></>}></Route>
-                <Route path='healthdetails' element={<HealthDetails/>}></Route>
-                <Route path='workoutplan' element={<WorkoutPlan/>}></Route>
-                <Route path='paymentdetails' element={<PaymentDetails/>}></Route>
+            <Route path='/' element={<><HomePage/><HomeSubComponent/><GymFooter/></>}>  </Route>
+            <Route path='/home' element={<><HomePage/><HomeSubComponent/><GymFooter/></>}></Route>
+            <Route path='aboutus' element={<><HomePage/><Aboutus/><GymFooter/></>}> </Route>
+            <Route path='/trainee' element={<><HomePage/><Trainee/><GymFooter/></>}> </Route>
+             <Route path='/trainer' element={<><HomePage/><TrainerForm/><GymFooter/></>}></Route>
+                <Route path='login' element={<><HomePage/><Login/><GymFooter/></>}></Route>
+                <Route path='/owner' element={<><HomePage/><Login/><GymFooter/></>}></Route>
+                <Route path='healthdetails' element={<><HealthDetails/><GymFooter/></>}></Route>
+                <Route path='workoutplan' element={<><WorkoutPlan/><GymFooter/></>}></Route>
+                <Route path='paymentdetails' element={<><PaymentDetails/><GymFooter/></>}></Route>
                 
-            <Route path='/bmicalculator' element={<><HomePage/><BMICalculator/></>}></Route>
-                <Route path='caloriecounter' element={<><HomePage/><CalorieCounter/></>}></Route>
-                <Route path='membershipplan' element={<><HomePage/><MembershipPlan/></>}></Route>  
+            <Route path='/bmicalculator' element={<><HomePage/><BMICalculator/><GymFooter/></>}></Route>
+                <Route path='caloriecounter' element={<><HomePage/><CalorieCounter/><GymFooter/></>}></Route>
+                <Route path='membershipplan' element={<><HomePage/><MembershipPlan/><GymFooter/></>}></Route>  
 
                 {/* <Route path='/logout' element={<Logout></Logout>}>  </Route> */}
       
        {/* Owner Perspective */}
        <Route>      
-       <Route path='ownerpage' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><OwnerProfile/></ProtectedRouteOwner>}></Route>
-      <Route path='traineedata/' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><TraineeData/></ProtectedRouteOwner>}></Route>
-      <Route path='trainerdata' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><TrainerData/></ProtectedRouteOwner>}></Route>
-       <Route path='ownerprofile' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><OwnerProfile/></ProtectedRouteOwner>}></Route>   
-       <Route path='traineedata/updatetrainee' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><UpdateTrainee/></ProtectedRouteOwner>}></Route>
-       <Route path='trainerdata/updatetrainer' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><UpdateTrainer/></ProtectedRouteOwner>}></Route>
-      <Route path='ownerbmicalculator' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><BMICalculator/></ProtectedRouteOwner>}></Route>
-      <Route path='ownercaloriecounter' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><CalorieCounter/></ProtectedRouteOwner>}></Route>
+       <Route path='ownerpage' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><OwnerProfile/><GymFooter/></ProtectedRouteOwner>}></Route>
+      <Route path='traineedata/' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><TraineeData/><GymFooter/></ProtectedRouteOwner>}></Route>
+      <Route path='trainerdata' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><TrainerData/><GymFooter/></ProtectedRouteOwner>}></Route>
+       <Route path='ownerprofile' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><OwnerProfile/><GymFooter/></ProtectedRouteOwner>}></Route>   
+       <Route path='traineedata/updatetrainee' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><UpdateTrainee/><GymFooter/></ProtectedRouteOwner>}></Route>
+       <Route path='trainerdata/updatetrainer' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><UpdateTrainer/><GymFooter/></ProtectedRouteOwner>}></Route>
+      <Route path='ownerbmicalculator' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><BMICalculator/><GymFooter/></ProtectedRouteOwner>}></Route>
+      <Route path='ownercaloriecounter' element={<ProtectedRouteOwner><OwnerLoginPageLayout/><CalorieCounter/><GymFooter/></ProtectedRouteOwner>}></Route>
    </Route>
  
   {/* Trainer Perspective */}
   <Route>
   {/* <Route path='HomePage' element={<><HomePage/></>}></Route>  */}
-  <Route path='trainerpage' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TrainerProfile/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainertraineedata' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TraineeDataInTrainer/></ProtectedRouteTrainer>}></Route>
-  <Route path='/trainertraineedata/workoutplan/trainertraineedata' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TraineeDataInTrainer/></ProtectedRouteTrainer>}></Route>
-  <Route path='/trainerupdatetrainee' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TrainerUpdateTrainee/></ProtectedRouteTrainer>}></Route>
-  <Route path='workoutdata' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutData/></ProtectedRouteTrainer>}></Route>
-  <Route path='workoutplan/' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutPlan/></ProtectedRouteTrainer>}></Route>
-  <Route path='/trainertraineedata/workoutplan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><UpdateWorkoutPlan/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainerbmicalculator' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><BMICalculator/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainercaloriecounter' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><CalorieCounter/></ProtectedRouteTrainer>}></Route>
-  <Route path='trainerworkoutplan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutData/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainerpage' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TrainerProfile/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainertraineedata' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TraineeDataInTrainer/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='/trainertraineedata/workoutplan/trainertraineedata' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TraineeDataInTrainer/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='/trainerupdatetrainee' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><TrainerUpdateTrainee/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='workoutdata' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutData/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='workoutplan/' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutPlan/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='/trainertraineedata/workoutplan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><UpdateWorkoutPlan/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainerbmicalculator' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><BMICalculator/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainercaloriecounter' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><CalorieCounter/><GymFooter/></ProtectedRouteTrainer>}></Route>
+  <Route path='trainerworkoutplan' element={<ProtectedRouteTrainer><TrainerLoginPageLayout/><WorkoutData/><GymFooter/></ProtectedRouteTrainer>}></Route>
   </Route>
 
   <Route>

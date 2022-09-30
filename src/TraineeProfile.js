@@ -34,7 +34,7 @@ const TraineeProfile=()=>{
    axios.get(`http://localhost:8080/getHealthDetailsByName`).then((response)=>{
      
     setHealthData(response.data);
-    alert(JSON.stringify(healthData)); 
+   
    
   }).catch((error)=>{
       alert(error);

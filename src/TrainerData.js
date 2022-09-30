@@ -35,7 +35,7 @@ const TrainerData=()=>{
 
    const deleteCilck=(val)=>{
     setShow(false);
-    alert(val.trainerId);
+    
     let id=val.trainerId;
     let url=`http://localhost:8080/deleteTrainer/${id}`;
    
@@ -52,7 +52,7 @@ const TrainerData=()=>{
 
    const updateCilck=(val)=>{
         //alert("In updateCilck");  
-        alert(val.trainerId);  
+       
         let id=val.trainerId;
         navigate(`updatetrainer?id=${id}`);
         

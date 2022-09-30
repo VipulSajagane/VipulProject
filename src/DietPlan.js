@@ -13,7 +13,7 @@ const DietPlan = () => {
         axios.get('http://localhost:8080/getDietPlan/1').then((response)=>{
            
           setDietData(response.data);
-          alert(JSON.stringify(dietData));           
+                  
         }).catch((error)=>{
             alert(error);
                 })

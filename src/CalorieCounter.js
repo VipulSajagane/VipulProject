@@ -5,7 +5,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useFormik } from 'formik';
 import { calorieValidation } from './schemas/calorieCalValidation';
 import  { useState } from "react";
-
+import caloriesinfo from './Images/caloriesinfo.png'
 const initialValues= {
     age:"",
    height:"",
@@ -91,11 +91,12 @@ const CalorieCounter=()=>{
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                <button className='btn btn-success calorieButton' ><centre>Your calories: {calories}</centre></button>
+                <button className='btn btn-success calorieButton' ><centre>Your calories: {calories} Calories/Day</centre></button>
            
             </form>
            
             </div>
+            <div className='calorieFormBackground'><img className='caloriesImage ' src={caloriesinfo}></img> </div>
         </>
     );
 }

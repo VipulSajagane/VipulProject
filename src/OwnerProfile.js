@@ -23,7 +23,7 @@ const OwnerProfile=()=>{
      
       setResponseData(response.data);
       // alert(responseData.name)
-      alert("data added")
+     
  
      
    

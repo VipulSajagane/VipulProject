@@ -21,19 +21,17 @@ const HealthDetails = ()=>
         validationSchema:healthDetails,
         onSubmit:(values)=>{
           
-          // console.log("in submit"+values);
          
-          // alert(JSON.stringify(values))
     
-          axios.post('http://localhost:8080/putHealthDetails',values)
-          .then(response => {
-            if(response.data)
-           // navigate(`/owner?status=${response.data}`);
-           alert("data added")
+          // axios.post('http://localhost:8080/putHealthDetails',values)
+          // .then(response => {
+           
+           
+         
           
     
-    })
-    .catch(error => {  alert(error);  });
+    // })
+    // .catch(error => {  alert(error);  });
         },
      });
 
