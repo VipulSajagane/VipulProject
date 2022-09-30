@@ -5,6 +5,7 @@ import profilepic from './Images/profilepic.jpg'
 import {  useState,useEffect } from "react";
 import {Link, useNavigate,useSearchParams} from 'react-router-dom';
 import axios from 'axios';
+import loggedin from './Images/loggedin.png'
 
 const TrainerProfile=()=>{
   let[searchparams]=useSearchParams();
@@ -31,13 +32,15 @@ return (
      <section style={{ backgroundColor: '#eee' }}>
        
      <div className='OwnerProfile'>
-     <h1 className='trainerProfileHeading'>Trainer Profile</h1>
-      <MDBContainer className="py-5">
-        <MDBRow>
+     <img className='loggedinImage' src={loggedin}></img> <div className='loggedinuser'>{responseData.name}</div>
+     <h1 className='trainerProfileHeading'>Trainer Profile</h1> 
+    
+      <MDBContainer className="py-5"> 
+        <MDBRow>   
           <MDBCol lg="4">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
-                <MDBCardImage
+                <MDBCardImage 
                   src={profilepic}
                   alt="avatar"
                   className="rounded-circle"
@@ -45,7 +48,7 @@ return (
                   fluid />
                 <p className="text-muted mb-1">Backend Developer</p>
                 <p className="text-muted mb-4">CDAC Mumbai</p>
-
+               
               </MDBCardBody>
             </MDBCard>
           </MDBCol>

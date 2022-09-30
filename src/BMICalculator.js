@@ -25,10 +25,12 @@ const BMICalculator=()=>{
         onSubmit:(values)=>{
           console.log(values.age);
           //alert("in submit");
-
-         let cal = ((10.0 * values.weight)+(6.25 * values.height)-(5.0 * values.age))+5;
+         
+          let cal = (values.weight) /((values.height/100) * (values.height/100));
+        //  let cal = ((10.0 * values.weight)+(6.25 * values.height)-(5.0 * values.age))+5;
           // alert(cal);
-           setBmi(cal);
+        //    setBmi( cal);
+        setBmi(Math.round(cal));
 
         }
     
@@ -74,7 +76,7 @@ const BMICalculator=()=>{
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                <button className='btn btn-success calorieButton' ><centre>Your calories: {bmi}</centre></button>
+                <button className='btn btn-success calorieButton' ><centre>Your BMI: {bmi} kg/m^2</centre></button>
             </form>
             </div>
             

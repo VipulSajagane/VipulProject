@@ -6,7 +6,7 @@ import profilepic from '../src/Images/profilepic.jpg';
 import {  useState,useEffect } from "react";
 import {Link, useNavigate,useSearchParams} from 'react-router-dom';
 import axios from 'axios';
-
+import loggedin from './Images/loggedin.png'
 const OwnerProfile=()=>{
 
   let[searchparams]=useSearchParams();
@@ -37,6 +37,7 @@ return (
      <section style={{ backgroundColor: '#eee' }}>
    
      <div className='OwnerProfile'>
+     <img className='loggedinImage' src={loggedin}></img> <div className='loggedinuser'>{responseData.name}</div>
      <h1 className='ownerProfilePageHeading'>Owner Profile</h1>
       <MDBContainer className="py-5">
         <MDBRow>

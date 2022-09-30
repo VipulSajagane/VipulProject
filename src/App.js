@@ -89,11 +89,12 @@ function BasicExample() {
 
   <Route>
   <Route path='traineeePage' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><TraineeProfile/><GymFooter/></ProtectedRouteTrainee>}></Route>
+  <Route path='traineeeProfile/' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><TraineeProfile/><GymFooter/></ProtectedRouteTrainee>}></Route>
   <Route path='traineeworkoutplan' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><WorkoutPlan/><GymFooter/></ProtectedRouteTrainee>}></Route>
-  <Route path='healthdetails/' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><HealthDetails/><GymFooter/></ProtectedRouteTrainee>}></Route>
   <Route path='traineedietplan' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><DietPlan/><GymFooter/></ProtectedRouteTrainee>}></Route>
   <Route path='traineebmicalculator' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><BMICalculator/><GymFooter/></ProtectedRouteTrainee>}></Route>
   <Route path='traineecaloriecounter' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><CalorieCounter/><GymFooter/></ProtectedRouteTrainee>}></Route>
+  {/* <Route path='healthdetails/' element={<ProtectedRouteTrainee><TraineeeLoginPageLayout/><HealthDetails/><GymFooter/></ProtectedRouteTrainee>}></Route> */}
   </Route>
   
 </Routes>

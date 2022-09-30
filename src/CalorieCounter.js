@@ -70,7 +70,7 @@ const CalorieCounter=()=>{
                 {errors.weight && touched.weight ?(<p>{errors.weight}</p>):null}
                 </div>
 
-                {/* <Form.Group className="CalorieCounter " controlId="formBasicPassword">
+                <Form.Group className="CalorieCounter " controlId="formBasicPassword">
                     <Form.Label>Activity</Form.Label>
                     
                     <Form.Select aria-label="Default select example" name="activity" value={values.activity} onBlur={handleBlur}  onChange={handleChange}>
@@ -83,7 +83,7 @@ const CalorieCounter=()=>{
                         <option value="6">Extra Active: very intense exercise daily, or physical jobe</option>
 
                     </Form.Select>
-                </Form.Group> */}
+                </Form.Group>
                 <div className='formValidationError mb-3'>
                 {errors.activity && touched.activity ?(<p>{errors.activity}</p>):null}
                 </div>

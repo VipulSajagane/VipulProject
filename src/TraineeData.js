@@ -2,6 +2,12 @@ import { isContentEditable } from '@testing-library/user-event/dist/utils';
 import axios from 'axios';
 import {  useState,useEffect } from "react";
 import {Link, useNavigate,useSearchParams} from 'react-router-dom';
+
+
+
+
+
+
 const TraineeData=()=>{
     
     let[searchparams]=useSearchParams();
@@ -73,6 +79,8 @@ const TraineeData=()=>{
                 </tbody>
                </table>
                </div>
+
+            
                </>
             );
 }

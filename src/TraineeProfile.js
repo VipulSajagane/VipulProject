@@ -5,6 +5,7 @@ import profilepic from './Images/profilePhoto.jpg'
 import {  useState,useEffect } from "react";
 import {Link, useNavigate,useSearchParams} from 'react-router-dom';
 import axios from 'axios';
+import loggedin from './Images/loggedin.png'
 
 
 const TraineeProfile=()=>{
@@ -47,10 +48,11 @@ const TraineeProfile=()=>{
 
 return (
     <>
-    
+     
      <section style={{ backgroundColor: '#eee' }}>
-     <div className='traineeProfile'>
-     <h1 className='traineeProfileHeading allFormHeadings'>Trainee Profile</h1>
+     <div ><div className='traineeProfile mb=20'>
+     </div>
+     <div><h1 className='traineeProfileHeading allFormHeadings'>Trainee Profile</h1> <img className='loggedinImage' src={loggedin}></img> <div className='loggedinuser'>{responseData.name} </div>
       <MDBContainer className="">
         <MDBRow className='traineeProfileFirstContainer'>
           <MDBCol lg="4">
@@ -100,6 +102,16 @@ return (
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
+                    <MDBCardText>Aadhar Number</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">{responseData.adharno}</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
                     <MDBCardText>Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
@@ -119,65 +131,11 @@ return (
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </MDBContainer>
-     
+      </MDBContainer >
+      
      {/* second container starts */}
-     
-      <MDBContainer className="traineeProfileSecondContainer  py-5">
-        <MDBRow>
-          <MDBCol lg="7">
-            <MDBCard className=" ">
-              <MDBCardBody> <h1 className='traineeProfileSecondContainerHeading '>Health Details</h1><hr/>
-                <MDBRow className='traineeProfileSecondContainerContent'>
-                  <MDBCol sm="3">
-                    <MDBCardText>Age</MDBCardText>
-                  </MDBCol>
-                  <MDBCol className='' sm="9">
-                    <MDBCardText className="text-muted">{responseData.age}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow  className='traineeProfileSecondContainerContent'>
-                  <MDBCol sm="3">
-                    <MDBCardText>Height</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{healthData.height}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow  className='traineeProfileSecondContainerContent'>
-                  <MDBCol sm="3">
-                    <MDBCardText>Weight</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{healthData.weight}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow  className='traineeProfileSecondContainerContent'>
-                  <MDBCol sm="3">
-                    <MDBCardText>Date of Birth</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{healthData.dateOfBirth}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
+    </div>
 
-                <hr />
-                <MDBRow  className='traineeProfileSecondContainerContent'>
-                  <MDBCol sm="3">
-                    <MDBCardText>Blood Group</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">B+ve</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
       </div>
     </section>
 
