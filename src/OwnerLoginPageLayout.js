@@ -16,8 +16,10 @@ import TraineeData from './TraineeData';
 function OwnerLoginPageLayout() {
   let navigate=useNavigate();
   const Logout=()=>{
+
+     // localStorage.clear();
+     sessionStorage.clear();
   
-    localStorage.clear();
     navigate('/home');
   
   };

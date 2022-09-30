@@ -10,8 +10,12 @@ import loggedin from './Images/loggedin.png'
 const OwnerProfile=()=>{
 
   let[searchparams]=useSearchParams();
-  let username=searchparams.get("username");
+  //let username=searchparams.get("username");
+  //localStorage.setItem('username',username);
+  let username=sessionStorage.getItem("user");
+
   let navigate=useNavigate();
+  console.log(username);
   const [responseData, setResponseData] = useState({});
   
  useEffect(()=>{

@@ -17,6 +17,7 @@ const initialValues={
   adharno:"",
   joiningdate:"",
   address:"",
+  token:"",
 };
 
 const Trainee=()=>{
@@ -46,8 +47,20 @@ const Trainee=()=>{
     return<>
     <div className='backgroundColor'>
     <form action="" onSubmit={handleSubmit}className='moduleContents formsBackground traineeForm backgroundImages'>
-        <h1 className='moduleHeadings traineeHeading allFormHeadings'>TraineeForm</h1>
+        <h1 className='moduleHeadings traineeHeading'>TraineeForm</h1>
         <hr/>
+        <Form.Group className="TrainerForm " controlId="formBasicPassword">
+        <Form.Label>Token No.:</Form.Label>
+        <Form.Control type="text" name="token" value={values.token} onBlur={handleBlur} onChange={handleChange}  placeholder="Enter valid token number" />
+        <Form.Text className="text-muted"></Form.Text>
+        </Form.Group>
+        <div className='formValidationError'>
+         {errors.token && touched.token ? (<p>{errors.token}</p>):null}
+         </div>
+
+
+
+
         <Form.Group className="TrainerForm " controlId="formBasicPassword">
         <Form.Label>Name:</Form.Label>
         <Form.Control type="text" name="name" value={values.name} onBlur={handleBlur} onChange={handleChange}  placeholder="Enter your Name" />
@@ -144,7 +157,7 @@ const Trainee=()=>{
         <Form.Control type="text" placeholder="select your address" value={values.address} onBlur={handleBlur} onChange={handleChange} name="address" />
         <Form.Text className="text-muted"></Form.Text>
         </Form.Group> 
-        <div className='formValidationError mb-3'>
+        <div className='formValidationError'>
         {errors.address && touched.address ? (<p>{errors.address}</p>):null}
         </div>
 

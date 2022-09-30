@@ -10,9 +10,7 @@ import loggedin from './Images/loggedin.png'
 
 const TraineeProfile=()=>{
 
-  let[searchparams]=useSearchParams();
-
-  let username=searchparams.get("username");
+  let username=sessionStorage.getItem("user");
   let navigate=useNavigate();
   const [responseData, setResponseData] = useState({});
   const [healthData,setHealthData] = useState({});
@@ -22,7 +20,7 @@ const TraineeProfile=()=>{
   axios.get(`http://localhost:8080/getTraineeByName/${username}`).then((response)=>{
      
       setResponseData(response.data);
-      alert(JSON.stringify(responseData));
+      //alert(JSON.stringify(responseData));
  
       // console.log(responseData);
    
@@ -52,7 +50,7 @@ return (
      <section style={{ backgroundColor: '#eee' }}>
      <div ><div className='traineeProfile mb=20'>
      </div>
-     <div><h1 className='traineeProfileHeading allFormHeadings'>Trainee Profile</h1> <img className='loggedinImage' src={loggedin}></img> <div className='loggedinuser'>{responseData.name} </div>
+     <div> <img className='loggedinImage' src={loggedin}></img> <div className='loggedinuser'>{responseData.name} </div>
       <MDBContainer className="">
         <MDBRow className='traineeProfileFirstContainer'>
           <MDBCol lg="4">

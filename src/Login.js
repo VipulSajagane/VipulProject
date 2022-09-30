@@ -22,7 +22,7 @@ const Login=()=>{
       
     if(registerStatus){
       
-      setTimeout(() => setIsUserRegistered(true), 2500);
+      setTimeout(() => setIsUserRegistered(false), 2500);
 
     }
   
@@ -52,15 +52,17 @@ const Login=()=>{
        // console.log(resp.data.id)
   
           // forward the user to home page
+          sessionStorage.setItem("user",username);
           navigate(`/ownerpage?username=${username}`);
         }
         else if (role=="trainer") {
            
+          sessionStorage.setItem("user",username);
             navigate(`/trainerpage?username=${username}`);
            // navigate(`updatetrainer?id=${id}`)
           }
           else if (role=="trainee") {
-           
+            sessionStorage.setItem("user",username);
             navigate(`/traineeePage?username=${username}`);
           }else{
 
@@ -122,7 +124,7 @@ return(
             Invalid Credentials ..Try Again!
           </div>
         )}
-         {!(isUserRegistered) && (
+         {(isUserRegistered) && (
           <div className="alert alert-success">
             You Are Succesfully Registred...!
           </div>

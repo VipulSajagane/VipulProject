@@ -8,8 +8,9 @@ import axios from 'axios';
 import loggedin from './Images/loggedin.png'
 
 const TrainerProfile=()=>{
-  let[searchparams]=useSearchParams();
-  let username=searchparams.get("username");
+  // let[searchparams]=useSearchParams();
+  // let username=searchparams.get("username");
+  let username=sessionStorage.getItem("user");
   let navigate=useNavigate();
   const [responseData, setResponseData] = useState({});
   
