@@ -1,5 +1,6 @@
 {
   "name": "my-react-project",
+  "homepage": "https://VipulSajagane.github.io/VipulProject",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
     "formik": "^2.2.9",
+    "gh-pages": "^4.0.0",
     "grommet": "^2.25.3",
     "i": "^0.3.7",
     "mdb-react-ui-kit": "^4.2.0",
@@ -22,6 +24,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
