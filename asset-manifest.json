@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/VipulProject/static/css/main.58b5766d.css",
+    "main.js": "/VipulProject/static/js/main.8b5074ef.js",
+    "static/js/787.624ad79f.chunk.js": "/VipulProject/static/js/787.624ad79f.chunk.js",
+    "static/media/Akash.jpeg": "/VipulProject/static/media/Akash.2c8f7fb9493f1b96c2f9.jpeg",
+    "static/media/workout4.jpg": "/VipulProject/static/media/workout4.a3379c3471d40931b574.jpg",
+    "static/media/gym1.jpg": "/VipulProject/static/media/gym1.f68255df2b2df703551d.jpg",
+    "static/media/background1.jpg": "/VipulProject/static/media/background1.056487ee3dea0416dd70.jpg",
+    "static/media/Vipul.jpeg": "/VipulProject/static/media/Vipul.cddc4ccbfce47623a5f7.jpeg",
+    "static/media/caloriesinfo.png": "/VipulProject/static/media/caloriesinfo.7995f5c1003e2444cc7f.png",
+    "static/media/Vaibhav.jpeg": "/VipulProject/static/media/Vaibhav.523e50ac500a2c33a802.jpeg",
+    "static/media/workout5.jpg": "/VipulProject/static/media/workout5.a504607614b8b1a35df0.jpg",
+    "static/media/Kirtee.jpeg": "/VipulProject/static/media/Kirtee.c68d9cf5bca5162f14c8.jpeg",
+    "static/media/hl1.jpg": "/VipulProject/static/media/hl1.6a556ea15fbb59bb64e0.jpg",
+    "static/media/Sir.jpeg": "/VipulProject/static/media/Sir.2ed2b34ef3e43ebb213d.jpeg",
+    "static/media/BMI.png": "/VipulProject/static/media/BMI.3a2fc31ad50cf83afa91.png",
+    "static/media/Prathmesh.jpeg": "/VipulProject/static/media/Prathmesh.3f6718b4f6f41a5e346c.jpeg",
+    "static/media/hl2.jpg": "/VipulProject/static/media/hl2.7656150c9176bd062dd4.jpg",
+    "static/media/hl3.jpg": "/VipulProject/static/media/hl3.018778373e7e65f67d7f.jpg",
+    "static/media/gym3.jpg": "/VipulProject/static/media/gym3.45d4202a9c95160ca45c.jpg",
+    "static/media/workout6.jpg": "/VipulProject/static/media/workout6.364608ea7bf19165729f.jpg",
+    "static/media/gym2.jpg": "/VipulProject/static/media/gym2.5cf2ca8face9ac7f2aaa.jpg",
+    "static/media/workout1.webp": "/VipulProject/static/media/workout1.11068e0ba7c576adba65.webp",
+    "static/media/loggedin.png": "/VipulProject/static/media/loggedin.96633c7c561f9031602a.png",
+    "static/media/workout3.jfif": "/VipulProject/static/media/workout3.1381990e528624b33439.jfif",
+    "static/media/profilepic.jpg": "/VipulProject/static/media/profilepic.85dc569fd0eba31d0ec3.jpg",
+    "static/media/workout2.jfif": "/VipulProject/static/media/workout2.5c2ec780effc27f64137.jfif",
+    "index.html": "/VipulProject/index.html",
+    "main.58b5766d.css.map": "/VipulProject/static/css/main.58b5766d.css.map",
+    "main.8b5074ef.js.map": "/VipulProject/static/js/main.8b5074ef.js.map",
+    "787.624ad79f.chunk.js.map": "/VipulProject/static/js/787.624ad79f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58b5766d.css",
+    "static/js/main.8b5074ef.js"
+  ]
+}
